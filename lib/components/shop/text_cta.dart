@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yoriha/components/Cart/cart_page.dart';
 import 'package:yoriha/theme/colors.dart';
 
 class TextCTA extends StatelessWidget {
@@ -24,8 +25,15 @@ class TextCTA extends StatelessWidget {
         ),
         Container(
           margin: const EdgeInsets.only(right: 20),
-          child: const Icon(
-            Icons.shopping_bag_outlined,
+          child: IconButton(
+            icon: const Icon(Icons.shopping_bag_outlined),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CartPage(),
+                  ));
+            },
             color: highlightColor,
           ),
         ),
