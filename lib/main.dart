@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yoriha/components/Cart/flash_page.dart';
 import 'package:yoriha/components/Home/carousel_title.dart';
 import 'package:yoriha/components/Home/category_title.dart';
 import 'package:yoriha/components/Home/navbar_build.dart';
@@ -25,13 +26,24 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: 'Poppins',
       ),
-      home: Scaffold(
-        bottomNavigationBar: biuldNav(),
-        backgroundColor: bodyColor,
-        body: const SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
-          child: Body(),
-        ),
+      home:const FlashPage(),
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  const Home({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      bottomNavigationBar: biuldNav(),
+      backgroundColor: bodyColor,
+      body: const SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Body(),
       ),
     );
   }
