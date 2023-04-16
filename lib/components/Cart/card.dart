@@ -10,7 +10,7 @@ class CardPage extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       margin: const EdgeInsets.only(
-        top: 25,
+        top: 20,
         right: 10,
         left: 10,
       ),
@@ -18,24 +18,24 @@ class CardPage extends StatelessWidget {
         color: appBarColor,
         borderRadius: BorderRadius.all(
           Radius.circular(
-            15,
+            25,
           ),
         ),
       ),
       child: Row(
-        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            height: 120,
-            width: 140,
+            height: 100,
+            width: 100,
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(
                 Radius.circular(25),
               ),
-              color: Colors.black,
               image: DecorationImage(
+                fit: BoxFit.cover,
                 image: NetworkImage(imageurl),
               ),
+              color: highlightColor,
             ),
           ),
           Container(
@@ -48,7 +48,6 @@ class CardPage extends StatelessWidget {
             margin: const EdgeInsets.only(left: 5),
             child: Column(
               children: [
-                // margin: const EdgeInsets.only(bottom: 10),
                 const Text(
                   "Apple",
                   style: TextStyle(
@@ -57,19 +56,9 @@ class CardPage extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-
-                const Text(
-                  "Organic",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: lightText,
-                  ),
-                ),
                 const SizedBox(
                   height: 20,
                 ),
-
                 Container(
                   alignment: Alignment.center,
                   height: 40,

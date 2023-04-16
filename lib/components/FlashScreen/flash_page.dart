@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:yoriha/components/shop/shop.dart';
-import 'package:yoriha/main.dart';
+import 'package:yoriha/components/Home/home_widget.dart';
 import 'package:yoriha/theme/colors.dart';
 
 class FlashPage extends StatefulWidget {
@@ -16,7 +15,7 @@ class _FlashPageState extends State<FlashPage> {
   void initState() {
     super.initState();
     Timer(
-      const Duration(seconds: 3),
+      const Duration(seconds: 2),
       () => Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (BuildContext context) => const Home(),

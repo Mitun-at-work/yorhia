@@ -14,7 +14,7 @@ class ProfilePage extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                height: 150,
+                height: 180,
                 color: Colors.amber,
               ),
               // const ProfileTile(),

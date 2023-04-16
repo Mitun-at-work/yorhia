@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yoriha/components/Cart/card.dart';
 import 'package:yoriha/theme/colors.dart';
 
-class CartPage extends StatelessWidget {
+class CartPage extends StatefulWidget {
   const CartPage({super.key});
 
   static List<String> imageLinks = [
@@ -14,65 +14,39 @@ class CartPage extends StatelessWidget {
   ];
 
   @override
+  State<CartPage> createState() => _CartPageState();
+}
+
+class _CartPageState extends State<CartPage> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: bodyColor,
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text("My Cart"),
+        backgroundColor: appBarColor,
+        elevation: 0,
+        toolbarHeight: 70,
+      ),
       body: Column(
         children: [
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 50,
-                  left: 20,
-                ),
-                child: InkWell(
-                  child: IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(
-                      Icons.arrow_back_ios,
-                      size: 20,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                child: Row(
-                  children: const [
-                    Padding(
-                      padding: EdgeInsets.only(
-                        top: 50,
-                        left: 85,
-                        right: 100,
-                        // bottom: 30,
-                      ),
-                      child: Text(
-                        "My Cart",
-                        style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.white,
-                          fontFamily: 'Poppins',
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
           Expanded(
             child: Column(
               children: [
-                Flexible(
-                  child: ListView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    itemCount: imageLinks.length,
-                    itemBuilder: (context, index) {
-                      return CardPage(imageurl: imageLinks[index]);
-                    },
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 1,
+                      vertical: 10,
+                    ),
+                    child: ListView.builder(
+                      physics: const BouncingScrollPhysics(),
+                      itemCount: CartPage.imageLinks.length,
+                      itemBuilder: (context, index) {
+                        return CardPage(imageurl: CartPage.imageLinks[index]);
+                      },
+                    ),
                   ),
                 ),
                 Center(
@@ -88,15 +62,13 @@ class CartPage extends StatelessWidget {
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
                           backgroundColor: highlightColor,
-                          shape: const StadiumBorder(),
                         ),
                         child: const Text(
-                          "\$300 Check Out",
+                          "\$300 Shop Now",
                           style: TextStyle(
                             fontSize: 20,
-                            fontFamily: 'Poppins',
-                            color: Colors.black87,
-                            fontWeight: FontWeight.w700,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
