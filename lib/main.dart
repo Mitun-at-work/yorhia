@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:yoriha/components/FlashScreen/flash_page.dart';
+// import 'package:yoriha/components/FlashScreen/flash_page.dart';
+import 'package:yoriha/components/Home/home_widget.dart';
 import 'package:yoriha/theme/colors.dart';
 
 void main() => runApp(
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: 'Poppins',
       ),
-      home: const FlashPage(),
+      home:const Home(),
     );
   }
 }
