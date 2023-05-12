@@ -43,8 +43,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 flutter_native_splash:
-  image: asset\Screenshot 2023-04-16 140215.png
-  color: "292D32"
+  image: "asset/logo.png"
+  color: "#292D32"
   
 
 # For information on the generic Dart part of this file, see the
