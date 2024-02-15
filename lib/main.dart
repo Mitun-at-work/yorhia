@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
-// import 'package:yoriha/components/FlashScreen/flash_page.dart';
-import 'package:yoriha/components/Home/home_widget.dart';
-import 'package:yoriha/theme/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
-void main() => runApp(
-      const MyApp(),
-    );
+import 'core/dependencies/injection_container.dart';
+import 'core/routes/routes.dart';
+import 'core/theme/theme.dart';
+import 'features/home/presentation/pages/home.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({
-    Key? key,
-  }) : super(key: key);
+void main() async {
+  await InjectionContainer().injectDependencies();
+  // final homeController = InjectionContainer().serviceLocator<HomeController>();
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: appBarColor,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        fontFamily: 'Poppins',
+  runApp(
+    ScreenUtilInit(
+      splitScreenMode: true,
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: const HomeScreen(),
+        theme: getTheme,
+        routes: getRoutes,
+        initialRoute: "",
       ),
-      home:const Home(),
-    );
-  }
+    ),
+  );
 }
