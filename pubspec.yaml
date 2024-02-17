@@ -32,13 +32,13 @@ dependencies:
   cached_network_image: ^3.3.1
   cupertino_icons: ^1.0.2
   dio: ^5.4.0
+  equatable: ^2.0.5
   flutter:
     sdk: flutter
   flutter_launcher_icons: ^0.13.1
   flutter_native_splash: ^2.2.19
   flutter_screenutil: ^5.9.0
   get: ^4.6.6
-  get_it: ^7.6.7
   hive: ^2.2.3
 
 dev_dependencies:

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ShopPage extends StatelessWidget {
-  const ShopPage({super.key});
+class ShopScreen extends StatelessWidget {
+  const ShopScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../../../../core/routes/app_routes.dart';
 import '../widgets/home_product_carousel.dart';
 import '../widgets/home_title_tile.dart';
 import '../widgets/shop_available_announcement.dart';
@@ -10,6 +10,12 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, AppRouteNames.shopRoute);
+        },
+        child: const Icon(Icons.shopping_bag_outlined),
+      ),
       appBar: AppBar(
         elevation: 1,
         title: const Text("Welcome Mitun"),
@@ -19,18 +25,17 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const ShopAnnouncement(),
-            HomeTitleTile(
-              tileHeading: "Shop With Us",
-              function: () {},
-            ),
-            const HomeProductCarousel(),
-          ],
-        ),
-      ),
+          child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const ShopAnnouncement(),
+          HomeTitleTile(
+            tileHeading: "Shop With Us",
+            function: () {},
+          ),
+          const HomeProductCarousel(),
+        ],
+      )),
     );
   }
 }

@@ -1,4 +1,4 @@
-class AppRoutes {
+class AppRouteNames {
   static String homeRoute = "/home";
   static String shopRoute = "/shop";
   static String authRoute = "/auth";

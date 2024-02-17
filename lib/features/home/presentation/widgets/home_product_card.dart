@@ -1,11 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get_it/get_it.dart';
-
-import '../../domain/entity/product_entity.dart';
-import '../controllers/home_controller.dart';
+import 'package:yoriha/features/home/model/product_mode.dart';
 
 class HomeProductCard extends StatelessWidget {
   const HomeProductCard({
@@ -13,15 +8,11 @@ class HomeProductCard extends StatelessWidget {
     required this.productModel,
   });
 
-  final ProductEntity productModel;
+  final ProductModel productModel;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () async {
-        await GetIt.instance<HomeController>().updateGetProductLists();
-        log("Completed");
-      },
       child: Container(
         width: 150.w,
         margin: EdgeInsets.symmetric(
