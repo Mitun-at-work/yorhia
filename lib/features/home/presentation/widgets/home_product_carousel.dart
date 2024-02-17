@@ -1,33 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:yoriha/core/routes/app_routes.dart';
 import 'package:yoriha/features/home/model/product_mode.dart';
 
 import 'home_product_card.dart';
 
-class HomeProductCarousel extends StatefulWidget {
-  const HomeProductCarousel({super.key});
+class HomeProductCarousel extends StatelessWidget {
+  const HomeProductCarousel({
+    super.key,
+    required this.productModel,
+  });
 
-  @override
-  State<HomeProductCarousel> createState() => _HomeProductCarouselState();
-}
+  final List<ProductModel> productModel;
 
-class _HomeProductCarouselState extends State<HomeProductCarousel> {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 250.h,
-      child: ListView.builder(
-        // itemCount: state.productEntity.length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return HomeProductCard(
-              productModel: ProductModel(
-            productName: "",
-            productPrice: "10",
-            productQuantity: "150ml",
-            imgLink: "https",
-          ));
-        },
+    return GestureDetector(
+      onTap: () => Get.toNamed(AppRouteNames.shopRoute),
+      child: SizedBox(
+        height: 250.h,
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: productModel.length > 3 ? 3 : productModel.length,
+          itemBuilder: (context, index) {
+            return HomeProductCard(
+              productModel: productModel[index],
+            );
+          },
+        ),
       ),
     );
   }

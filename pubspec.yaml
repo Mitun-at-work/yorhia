@@ -39,6 +39,7 @@ dependencies:
   flutter_native_splash: ^2.2.19
   flutter_screenutil: ^5.9.0
   get: ^4.6.6
+  get_it: ^7.6.7
   hive: ^2.2.3
 
 dev_dependencies:

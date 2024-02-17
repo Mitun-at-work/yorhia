@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
-import '../../../../core/routes/app_routes.dart';
+import 'package:get/get.dart';
+import 'package:yoriha/core/dependencies/injection_container.dart';
+import 'package:yoriha/core/generic/firebase_manage.dart';
+import 'package:yoriha/features/home/controller/home_controller.dart';
+import 'package:yoriha/features/home/presentation/widgets/home_loading_state.dart';
 import '../widgets/home_product_carousel.dart';
 import '../widgets/home_title_tile.dart';
 import '../widgets/shop_available_announcement.dart';
+
+final HomeController controller =
+    Get.put(HomeController(serviceLocator<FireBaseManager>()));
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,32 +17,29 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pushNamed(context, AppRouteNames.shopRoute);
-        },
-        child: const Icon(Icons.shopping_bag_outlined),
-      ),
       appBar: AppBar(
-        elevation: 1,
-        title: const Text("Welcome Mitun"),
-        actions: [
-          IconButton(
-              onPressed: () {}, icon: const Icon(Icons.notifications_outlined))
-        ],
+        elevation: 2,
+        title: const Text("Welcome Mitun !"),
       ),
-      body: SafeArea(
-          child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const ShopAnnouncement(),
-          HomeTitleTile(
-            tileHeading: "Shop With Us",
-            function: () {},
-          ),
-          const HomeProductCarousel(),
-        ],
-      )),
+      body: controller.obx(
+        onLoading: const HomeLoadingState(isLoading: true),
+        onEmpty: const HomeLoadingState(isLoading: false),
+        onError: (error) {
+          return const CircleAvatar();
+        },
+        (state) {
+          if (state != null) {
+            return Column(
+              children: [
+                const ShopAnnouncement(),
+                HomeTitleTile(tileHeading: "Shop Products", function: () {}),
+                HomeProductCarousel(productModel: state),
+              ],
+            );
+          }
+          return const SizedBox();
+        },
+      ),
     );
   }
 }
