@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeTitleTile extends StatelessWidget {
   const HomeTitleTile(
@@ -10,11 +11,14 @@ class HomeTitleTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: Text(tileHeading),
-      trailing: TextButton(
-        onPressed: function,
-        child: const Text("See More"),
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10.w),
+      child: ListTile(
+        leading: Text(tileHeading),
+        trailing: TextButton(
+          onPressed: function,
+          child: const Text("See More"),
+        ),
       ),
     );
   }

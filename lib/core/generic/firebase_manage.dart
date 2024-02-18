@@ -4,11 +4,40 @@ class FireBaseManager {
 
   // Get FreeBies from cloud
   Future<List<Map<String, dynamic>>> getFreebies() async {
-    await Future.delayed(const Duration(seconds: 5));
     return Future.value([
       {
         "productName": "Wheat Rations",
-        "productPrice": "240",
+        "productPrice": "250",
+        "productQuantity": "250mg",
+        "imgLink": "https://imglink",
+      },
+      {
+        "productName": "Crude Oil",
+        "productPrice": "200",
+        "productQuantity": "250mg",
+        "imgLink": "https://imglink",
+      },
+      {
+        "productName": "Beans",
+        "productPrice": "300",
+        "productQuantity": "250mg",
+        "imgLink": "https://imglink",
+      },
+      {
+        "productName": "Tea Powder",
+        "productPrice": "200",
+        "productQuantity": "250mg",
+        "imgLink": "https://imglink",
+      },
+      {
+        "productName": "Cofee Powder",
+        "productPrice": "100",
+        "productQuantity": "250mg",
+        "imgLink": "https://imglink",
+      },
+      {
+        "productName": "Maidha Flour",
+        "productPrice": "500",
         "productQuantity": "250mg",
         "imgLink": "https://imglink",
       }

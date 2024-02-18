@@ -23,11 +23,20 @@ class HomeController extends GetxController
     final List<ProductModel> productModel = [];
 
     // You can  fetch products from remote server
-    final List<Map<String, dynamic>> response =
-        await fireBaseManager.getFreebies();
+
+    late List<Map<String, dynamic>> response;
+
+    try {
+      response = await fireBaseManager.getFreebies();
+    } catch (e) {
+      change(null, status: RxStatus.error());
+    }
 
     for (Map<String, dynamic> element in response) {
-      productModel.add(ProductModel.fromJson(element));
+      log(ProductModel.fromJson(element).toString());
+      productModel.add(ProductModel.fromJson(
+        element,
+      ));
     }
 
     constantsHolder.fetchedData = productModel;

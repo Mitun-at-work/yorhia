@@ -27,7 +27,7 @@ class HomeProductCard extends StatelessWidget {
               margin: EdgeInsets.symmetric(vertical: 10.h),
               height: 150.h,
               decoration: BoxDecoration(
-                color: Colors.orange.withOpacity(.3),
+                color: Colors.orange.withOpacity(.1),
                 borderRadius: BorderRadius.all(Radius.circular(4.r)),
               ),
             ),
@@ -45,7 +45,7 @@ class HomeProductCard extends StatelessWidget {
               ),
             ),
             Text(
-              productModel.productPrice,
+              productModel.productPrice.toString(),
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.green,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:yoriha/features/shop/controller/shop_controller.dart';
 
 class OrderBottomBar extends StatelessWidget {
   const OrderBottomBar({super.key});
@@ -24,13 +26,15 @@ class OrderBottomBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
-              "450",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            GetBuilder<ShopController>(builder: (controller) {
+              return Text(
+                controller.orderTotal.toString(),
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              );
+            }),
             TextButton(
               onPressed: () {},
               child: const Text(
