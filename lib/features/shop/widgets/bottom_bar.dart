@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:yoriha/core/routes/app_routes.dart';
 import 'package:yoriha/features/shop/controller/shop_controller.dart';
 
 class OrderBottomBar extends StatelessWidget {
@@ -36,7 +37,7 @@ class OrderBottomBar extends StatelessWidget {
               );
             }),
             TextButton(
-              onPressed: () {},
+              onPressed: () => Get.toNamed(AppRouteNames.homeRoute),
               child: const Text(
                 "Check Out",
                 style: TextStyle(

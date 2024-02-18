@@ -5,8 +5,9 @@ class AppTheme {
 
   static Color defaultBoxShadowColor = Colors.grey.withOpacity(.1);
 
-  static Color productSelectedBoxShadowColor =
-      Colors.orangeAccent.withOpacity(.5);
+  static Color productSelectedBoxShadowColor = Colors.green.withOpacity(.3);
+
+  static Color appHighLightColor = Colors.lightGreenAccent;
 }
 
 // BoxShadow Class

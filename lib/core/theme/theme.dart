@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 ThemeData get getTheme => ThemeData(
       fontFamily: 'Poppins',
-      colorSchemeSeed: Colors.orange,
+      colorSchemeSeed: Colors.lightGreenAccent,
       appBarTheme: const AppBarTheme(
         titleTextStyle: TextStyle(
           color: Colors.black,

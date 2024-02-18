@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:yoriha/core/constants/app_themes.dart';
 import 'package:yoriha/features/home/model/product_mode.dart';
 
 class HomeProductCard extends StatelessWidget {
@@ -27,7 +28,7 @@ class HomeProductCard extends StatelessWidget {
               margin: EdgeInsets.symmetric(vertical: 10.h),
               height: 150.h,
               decoration: BoxDecoration(
-                color: Colors.orange.withOpacity(.1),
+                color: AppTheme.appHighLightColor.withOpacity(.1),
                 borderRadius: BorderRadius.all(Radius.circular(4.r)),
               ),
             ),

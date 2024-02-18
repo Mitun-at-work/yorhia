@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:yoriha/core/dependencies/injection_container.dart';
 import 'package:yoriha/core/generic/firebase_manage.dart';
+import 'package:yoriha/core/routes/app_routes.dart';
 import 'package:yoriha/features/home/controller/home_controller.dart';
+import 'package:yoriha/features/home/model/product_mode.dart';
+import 'package:yoriha/features/home/presentation/widgets/home_banner.dart';
 import 'package:yoriha/features/home/presentation/widgets/home_loading_state.dart';
 import '../widgets/home_product_carousel.dart';
 import '../widgets/home_title_tile.dart';
@@ -29,17 +32,34 @@ class HomeScreen extends StatelessWidget {
         },
         (state) {
           if (state != null) {
-            return Column(
-              children: [
-                const ShopAnnouncement(),
-                HomeTitleTile(tileHeading: "Shop Products", function: () {}),
-                HomeProductCarousel(productModel: state),
-              ],
-            );
+            return HomeSuccessState(state: state);
           }
           return const SizedBox();
         },
       ),
+    );
+  }
+}
+
+class HomeSuccessState extends StatelessWidget {
+  const HomeSuccessState({
+    super.key,
+    required this.state,
+  });
+
+  final List<ProductModel> state;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const ShopAnnouncement(),
+        HomeTitleTile(
+          tileHeading: "Shop Products",
+          function: () => Get.toNamed(AppRouteNames.shopRoute),
+        ),
+        HomeProductCarousel(productModel: state),
+      ],
     );
   }
 }

@@ -21,6 +21,7 @@ class HomeProductCarousel extends StatelessWidget {
       child: SizedBox(
         height: 250.h,
         child: ListView.builder(
+          padding: EdgeInsets.only(left: 10.w, right: 20.w),
           scrollDirection: Axis.horizontal,
           itemCount: productModel.length > 3 ? 3 : productModel.length,
           itemBuilder: (context, index) {

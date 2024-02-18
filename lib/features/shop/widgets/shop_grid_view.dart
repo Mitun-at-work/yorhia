@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:yoriha/core/constants/app_themes.dart';
+import 'package:yoriha/features/home/model/product_mode.dart';
 import 'package:yoriha/features/shop/controller/shop_controller.dart';
 
 class ShopGridView extends StatelessWidget {
@@ -19,6 +20,7 @@ class ShopGridView extends StatelessWidget {
         ),
         itemCount: controller.productModels.length,
         itemBuilder: (context, index) {
+          final ProductModel productModel = controller.productModels[index];
           return GestureDetector(
             onTap: () => controller.updateProductSelected(index),
             child: Container(
@@ -36,19 +38,26 @@ class ShopGridView extends StatelessWidget {
                     height: 140.h,
                     width: 140.w,
                     decoration: BoxDecoration(
-                      color: Colors.orangeAccent.withOpacity(.1),
+                      color: AppTheme.appHighLightColor.withOpacity(.1),
                       borderRadius: BorderRadius.all(Radius.circular(5.r)),
                     ),
                   ),
                   ListTile(
                     selected: controller.productIsSelected[index],
-                    title: const Text("Wheat Oil"),
+                    title: Text(productModel.productName),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text("200mg"),
-                        SizedBox(height: 5.h),
-                        const Text("*200"),
+                        Padding(
+                          padding: EdgeInsets.only(top: 2.h, bottom: 10.h),
+                          child: Text(productModel.productQuantity),
+                        ),
+                        Text(
+                          productModel.productPrice.toString(),
+                          style: const TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
                       ],
                     ),
                   ),

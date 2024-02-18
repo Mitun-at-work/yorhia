@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-class HiveManger {
+class AuthenticationManager {
   //
 
   // Function to initialse a hive box
@@ -9,7 +9,7 @@ class HiveManger {
   }
 
   // To verify wether a user is
-  Future<bool> verifyExistingUser() async {
+  Future<bool> isUserAuthenticated() async {
     return true;
   }
 }

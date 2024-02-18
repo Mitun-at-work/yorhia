@@ -18,7 +18,7 @@ void main() async {
         debugShowCheckedModeBanner: false,
         theme: getTheme,
         routes: AppRoutes().getRoutes(),
-        initialRoute: AppRouteNames.homeRoute,
+        initialRoute: AppRouteNames.onboardRoute,
       ),
     ),
   );

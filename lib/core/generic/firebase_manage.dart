@@ -1,4 +1,7 @@
 class FireBaseManager {
+  // Code to be filled
+  Future<void> authoriseUserEmail() async {}
+
   // Get Update User Request
   Future<void> updateUserRequest(Map jsonRequest) async {}
 

@@ -11,6 +11,7 @@ class ShopScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: buildShopAppBar(),
       bottomSheet: const OrderBottomBar(),
       body: GetBuilder<ShopController>(
