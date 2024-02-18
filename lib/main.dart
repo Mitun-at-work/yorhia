@@ -18,7 +18,7 @@ void main() async {
         debugShowCheckedModeBanner: false,
         theme: getTheme,
         routes: AppRoutes().getRoutes(),
-        initialRoute: AppRouteNames.paymentPage,
+        initialRoute: AppRouteNames.onboardRoute,
       ),
     ),
   );

@@ -9,7 +9,7 @@ class OnboardController extends GetxController {
   OnboardController(this.authManager, this.fireBaseManager);
 
   Future<void> authenticateUser() async {
-    fireBaseManager.authoriseUserEmail();
+    await fireBaseManager.authoriseUserEmail();
   }
 
   Future<void> isUserAuthenticated() async {
