@@ -6,4 +6,5 @@ class AppRouteNames {
   static String loginRote = "/login";
   static String checkOutPage = "/checkout";
   static String orderSuccessPage = "/sucess";
+  static String paymentPage = "/pay";
 }
