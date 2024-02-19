@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:yoriha/core/routes/app_routes.dart';
-import 'package:yoriha/features/shop/controller/shop_controller.dart';
+
+import '../../../core/routes/app_routes.dart';
+import '../controller/shop_controller.dart';
 
 class OrderBottomBar extends StatelessWidget {
   const OrderBottomBar({super.key});
@@ -37,7 +38,7 @@ class OrderBottomBar extends StatelessWidget {
               );
             }),
             TextButton(
-              onPressed: () => Get.toNamed(AppRouteNames.homeRoute),
+              onPressed: () => Get.toNamed(AppRouteNames.paymentPage),
               child: const Text(
                 "Check Out",
                 style: TextStyle(

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:yoriha/core/constants/app_themes.dart';
-import 'package:yoriha/features/home/model/product_mode.dart';
+
+import '../../../../core/constants/app_themes.dart';
+import '../../model/product_mode.dart';
 
 class HomeProductCard extends StatelessWidget {
   const HomeProductCard({

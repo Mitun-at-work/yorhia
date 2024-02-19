@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:yoriha/features/pay/pay.dart';
-import 'package:yoriha/features/shop/shop.dart';
 
 import '../../features/home/presentation/pages/home.dart';
 import '../../features/onboard/presentation/pages/onboard.dart';
+import '../../features/shop/shop.dart';
 import 'app_routes.dart';
 
 class AppRoutes {
@@ -12,7 +11,7 @@ class AppRoutes {
       AppRouteNames.homeRoute: (context) => const HomeScreen(),
       AppRouteNames.shopRoute: (context) => const ShopScreen(),
       AppRouteNames.onboardRoute: (context) => const OnboardScreen(),
-      AppRouteNames.paymentPage: (context) => const PaymentScreen(),
+      AppRouteNames.paymentPage: (context) => const Scaffold(),
     };
   }
 }

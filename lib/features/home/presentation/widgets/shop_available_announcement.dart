@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:yoriha/core/constants/app_themes.dart';
+
+import '../../../../core/constants/app_themes.dart';
 
 class ShopAnnouncement extends StatelessWidget {
   const ShopAnnouncement({super.key});

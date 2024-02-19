@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:yoriha/core/dependencies/injection_container.dart';
+
+import 'core/dependencies/injection_container.dart';
 import 'core/routes/app_routes.dart';
 import 'core/routes/routes.dart';
 import 'core/theme/theme.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await InjectionDependencies().injectDependencies();
 
   runApp(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:yoriha/features/shop/controller/shop_controller.dart';
+
+import '../controller/shop_controller.dart';
 
 AppBar buildShopAppBar() {
   return AppBar(
