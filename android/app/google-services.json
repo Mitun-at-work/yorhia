@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "424325246760",
+    "project_id": "yorhia-bbbc5",
+    "storage_bucket": "yorhia-bbbc5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:424325246760:android:66ad07955eb395cc6d2a1d",
+        "android_client_info": {
+          "package_name": "com.example.yorhia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbtDjQ8zqFFyE-z_lIPnDT9zYb6BkN2hI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
