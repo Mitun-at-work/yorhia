@@ -7,10 +7,13 @@ import 'core/routes/routes.dart';
 import 'core/theme/theme.dart';
 
 void main() async {
+  //
+  WidgetsFlutterBinding.ensureInitialized();
+
+  //
   final InjectionDependencies dependenciesContainer = InjectionDependencies();
   final AppRoutes appRoutes = AppRoutes();
 
-  WidgetsFlutterBinding.ensureInitialized();
   await dependenciesContainer.injectDependencies();
 
   runApp(
