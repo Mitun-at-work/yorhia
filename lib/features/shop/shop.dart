@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:yoriha/features/shop/controller/shop_controller.dart';
-import 'package:yoriha/features/shop/widgets/bottom_bar.dart';
-import 'package:yoriha/features/shop/widgets/build_shop_app_bar.dart';
-import 'package:yoriha/features/shop/widgets/shop_grid_view.dart';
+
+import 'controller/shop_controller.dart';
+import 'widgets/bottom_bar.dart';
+import 'widgets/build_shop_app_bar.dart';
+import 'widgets/shop_grid_view.dart';
 
 class ShopScreen extends StatelessWidget {
   const ShopScreen({super.key});

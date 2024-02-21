@@ -1,10 +1,11 @@
 import 'dart:developer';
 
 import 'package:get/get.dart';
-import 'package:yoriha/core/constants/constants.dart';
-import 'package:yoriha/core/generic/firebase_manage.dart';
-import 'package:yoriha/features/home/model/product_mode.dart';
-import 'package:yoriha/features/shop/controller/shop_controller.dart';
+
+import '../../../core/constants/constants.dart';
+import '../../../db/remote/firebase_manage.dart';
+import '../../shop/controller/shop_controller.dart';
+import '../model/product_mode.dart';
 
 class HomeController extends GetxController
     with StateMixin<List<ProductModel>> {
@@ -41,8 +42,9 @@ class HomeController extends GetxController
 
     constantsHolder.fetchedData = productModel;
 
+    await Future.delayed(const Duration(seconds: 10));
+
     change(productModel, status: RxStatus.success());
-    log("Completed Fetching");
 
     Get.put(ShopController());
   }

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:yoriha/core/constants/app_themes.dart';
-import 'package:yoriha/features/home/model/product_mode.dart';
-import 'package:yoriha/features/shop/controller/shop_controller.dart';
+
+import '../../../core/constants/app_themes.dart';
+import '../../home/model/product_mode.dart';
+import '../controller/shop_controller.dart';
 
 class ShopGridView extends StatelessWidget {
   const ShopGridView({super.key});

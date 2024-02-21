@@ -1,30 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:yoriha/core/dependencies/injection_container.dart';
-import 'package:yoriha/features/onboard/presentation/controllers/onboard_controller.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnboardScreen extends StatelessWidget {
   const OnboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final OnboardController onboardController =
-        Get.put(serviceLocator<OnboardController>());
-
-    return const Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: Text(
-              "Comple",
-              style: TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
+    // Scafolld
+    return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(onPressed: () {}),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Center(
+              child: SizedBox(
+                child: Image.asset("asset/images/bg.jpg"),
               ),
             ),
-          ),
-        ],
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 10.h),
+              child: const Text(
+                "Buy & Pay",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
