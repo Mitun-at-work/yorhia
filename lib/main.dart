@@ -3,13 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'core/dependencies/injection_container.dart';
-import 'core/routes/app_routes.dart';
 import 'core/routes/routes.dart';
 import 'core/theme/theme.dart';
 
 void main() async {
+  final InjectionDependencies dependenciesContainer = InjectionDependencies();
+  final AppRoutes appRoutes = AppRoutes();
+
   WidgetsFlutterBinding.ensureInitialized();
-  await InjectionDependencies().injectDependencies();
+  await dependenciesContainer.injectDependencies();
 
   runApp(
     ScreenUtilInit(
@@ -19,8 +21,8 @@ void main() async {
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         theme: getTheme,
-        routes: AppRoutes().getRoutes(),
-        initialRoute: AppRouteNames.onboardRoute,
+        routes: appRoutes.getRoutes(),
+        initialRoute: dependenciesContainer.appRoute,
       ),
     ),
   );
