@@ -2,8 +2,8 @@ import 'dart:developer';
 
 import 'package:get/get.dart';
 
-import '../../../core/constants/constants.dart';
-import '../../home/model/product_mode.dart';
+import '../../../../core/constants/constants.dart';
+import '../../../home/data/model/product_mode.dart';
 
 class ShopController extends GetxController {
   RxInt cartItmes = 0.obs;

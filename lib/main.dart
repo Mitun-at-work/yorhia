@@ -16,7 +16,7 @@ Future<void> main() async {
   final AppRoutes appRoutes = AppRoutes();
 
   // Dependency Injection
-  await dependenciesContainer.injectDependencies();
+  await dependenciesContainer.inject();
 
   runApp(
     ScreenUtilInit(
@@ -27,7 +27,7 @@ Future<void> main() async {
         debugShowCheckedModeBanner: false,
         theme: getTheme,
         routes: appRoutes.getRoutes(),
-        initialRoute: AppRouteNames.homeRoute,
+        initialRoute: AppRouteNames.onboardRoute,
       ),
     ),
   );

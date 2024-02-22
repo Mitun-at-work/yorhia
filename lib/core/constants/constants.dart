@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
 
-import '../../features/home/model/product_mode.dart';
+import '../../features/home/data/model/product_mode.dart';
 
 class ConstantsHolder {
   List<ProductModel> fetchedData;

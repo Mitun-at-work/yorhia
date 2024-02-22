@@ -4,9 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../../core/dependencies/injection_container.dart';
-import '../local/hive_auth_manager.dart';
-
 class FireBaseOperations {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
@@ -71,10 +68,6 @@ class FireBaseOperations {
     log(userCredential.toString());
 
     // If condition for succesfull Authorisation
-    await serviceLocator<AuthenticationManager>().storeUserDate({
-      "user_name": "Mitun Suresh",
-      "ration_number": 12345,
-    });
 
     return false;
   }

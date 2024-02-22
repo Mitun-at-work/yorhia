@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/routes/app_routes.dart';
-import '../../model/product_mode.dart';
+import '../../data/model/product_mode.dart';
 import 'home_product_carousel.dart';
 import 'home_title_tile.dart';
 import 'shop_available_announcement.dart';

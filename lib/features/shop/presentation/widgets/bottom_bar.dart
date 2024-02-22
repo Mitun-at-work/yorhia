@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../../core/routes/app_routes.dart';
+import '../../../../core/routes/app_routes.dart';
 import '../controller/shop_controller.dart';
 
 class OrderBottomBar extends StatelessWidget {

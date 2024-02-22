@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/routes/app_routes.dart';
-import '../../model/product_mode.dart';
+import '../../data/model/product_mode.dart';
 import 'home_product_card.dart';
 
 class HomeProductCarousel extends StatelessWidget {
