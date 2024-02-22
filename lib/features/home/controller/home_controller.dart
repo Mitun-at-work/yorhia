@@ -2,16 +2,17 @@ import 'dart:developer';
 
 import 'package:get/get.dart';
 
+import '../../../config/models/freebe_entity.dart';
 import '../../../core/constants/constants.dart';
-import '../../../db/remote/firebase_manage.dart';
+import '../../../db/remote/firebase_repository.dart';
 import '../../shop/controller/shop_controller.dart';
 import '../model/product_mode.dart';
 
 class HomeController extends GetxController
     with StateMixin<List<ProductModel>> {
-  final FireBaseManager fireBaseManager;
+  final FirebaseRepository fireBaseRepository;
 
-  HomeController(this.fireBaseManager);
+  HomeController(this.fireBaseRepository);
 
   // HomeController Initialisation
   @override
@@ -21,31 +22,26 @@ class HomeController extends GetxController
   }
 
   Future<void> fetchProducts() async {
-    final List<ProductModel> productModel = [];
+    List<ProductModel> productModel = [];
 
     // You can  fetch products from remote server
 
-    late List<Map<String, dynamic>> response;
+    final FreeBiesEntity? response = await fireBaseRepository.getFreebies();
 
-    try {
-      response = await fireBaseManager.getFreebies();
-    } catch (e) {
-      change(null, status: RxStatus.error());
+    log("The response recieved in the controller $response");
+
+    if (response != null) {
+      change(null, status: RxStatus.empty());
+    } else {
+      productModel = response!.productList;
+
+      constantsHolder.fetchedData = productModel;
+
+      change(productModel, status: RxStatus.success());
+
+      Get.put(ShopController());
+
+      await Future.delayed(const Duration(seconds: 4));
     }
-
-    for (Map<String, dynamic> element in response) {
-      log(ProductModel.fromJson(element).toString());
-      productModel.add(ProductModel.fromJson(
-        element,
-      ));
-    }
-
-    constantsHolder.fetchedData = productModel;
-
-    await Future.delayed(const Duration(seconds: 10));
-
-    change(productModel, status: RxStatus.success());
-
-    Get.put(ShopController());
   }
 }

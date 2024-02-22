@@ -3,15 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'core/dependencies/injection_container.dart';
-import 'package:yoriha/firebase_options.dart';
+import 'core/routes/app_routes.dart';
 import 'core/routes/routes.dart';
 import 'core/theme/theme.dart';
-import 'package:firebase_core/firebase_core.dart';
-
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   //
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -19,6 +15,7 @@ Future<void> main() async {
   final InjectionDependencies dependenciesContainer = InjectionDependencies();
   final AppRoutes appRoutes = AppRoutes();
 
+  // Dependency Injection
   await dependenciesContainer.injectDependencies();
 
   runApp(
@@ -30,7 +27,7 @@ Future<void> main() async {
         debugShowCheckedModeBanner: false,
         theme: getTheme,
         routes: appRoutes.getRoutes(),
-        initialRoute: dependenciesContainer.appRoute,
+        initialRoute: AppRouteNames.homeRoute,
       ),
     ),
   );

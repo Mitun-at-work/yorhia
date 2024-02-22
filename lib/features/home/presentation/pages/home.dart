@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../widgets/home_success_state.dart';
 
 import '../../../../core/dependencies/injection_container.dart';
-import '../../../../core/routes/app_routes.dart';
-import '../../../../db/remote/firebase_manage.dart';
+import '../../../../db/remote/firebase_repository.dart';
 import '../../controller/home_controller.dart';
-import '../../model/product_mode.dart';
 import '../widgets/home_loading_state.dart';
-import '../widgets/home_product_carousel.dart';
-import '../widgets/home_title_tile.dart';
-import '../widgets/shop_available_announcement.dart';
 
 final HomeController homeController =
-    Get.put(HomeController(serviceLocator<FireBaseManager>()));
+    Get.put(HomeController(serviceLocator<FirebaseRepository>()));
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -37,29 +33,6 @@ class HomeScreen extends StatelessWidget {
           return const SizedBox();
         },
       ),
-    );
-  }
-}
-
-class HomeSuccessState extends StatelessWidget {
-  const HomeSuccessState({
-    super.key,
-    required this.state,
-  });
-
-  final List<ProductModel> state;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const ShopAnnouncement(),
-        HomeTitleTile(
-          tileHeading: "Shop Products",
-          function: () => Get.toNamed(AppRouteNames.shopRoute),
-        ),
-        HomeProductCarousel(productModel: state),
-      ],
     );
   }
 }

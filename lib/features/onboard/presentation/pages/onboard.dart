@@ -9,7 +9,11 @@ class OnboardScreen extends StatelessWidget {
     // Scafolld
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(onPressed: () {}),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          // await serviceLocator<FirebaseRepository>().authoriseUserEmail();
+        },
+      ),
       body: SafeArea(
         child: Column(
           children: [

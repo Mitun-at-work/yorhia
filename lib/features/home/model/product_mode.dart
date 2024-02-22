@@ -16,7 +16,7 @@ class ProductModel {
     required this.imgLink,
   });
 
-  factory ProductModel.fromJson(Map<String, dynamic> jsonResponse) {
+  factory ProductModel.fromMap(Map<String, dynamic> jsonResponse) {
     return ProductModel(
       productName: jsonResponse['productName'],
       productPrice: double.parse(jsonResponse['productPrice']),
