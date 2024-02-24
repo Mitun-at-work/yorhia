@@ -26,6 +26,7 @@ Future<void> main() async {
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         theme: getTheme,
+        color: Colors.red,
         routes: appRoutes.getRoutes(),
         initialRoute: AppRouteNames.onboardRoute,
       ),
