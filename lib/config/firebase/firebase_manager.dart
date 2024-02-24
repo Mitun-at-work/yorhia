@@ -24,7 +24,7 @@ class FirebaseManager {
   }
 
   // Google SignIn Instance & Authenticate User
-  Future<Map<String, dynamic>> authenticateGmail() async {
+  Future<Map<String, String>> authenticateGmail() async {
     GoogleSignInAccount? googleuser = await GoogleSignIn().signIn();
 
     GoogleSignInAuthentication? googleAuth = await googleuser?.authentication;
@@ -36,6 +36,6 @@ class FirebaseManager {
     UserCredential userCredential =
         await FirebaseAuth.instance.signInWithCredential(credential);
 
-    return {'user_mail': userCredential.credential};
+    return {'user_mail': userCredential.credential.toString()};
   }
 }

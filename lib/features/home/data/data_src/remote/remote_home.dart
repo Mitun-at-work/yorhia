@@ -1,10 +1,9 @@
-import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:yoriha/config/firebase/firebase_manager.dart';
-import 'package:yoriha/config/network/network_manager.dart';
-import 'package:yoriha/features/home/data/data_src/remote/remote_home_data.dart';
-import 'package:yoriha/features/home/data/model/product_model.dart';
+
+import '../../../../../config/firebase/firebase_manager.dart';
+import '../../../../../config/network/network_manager.dart';
+import '../../model/product_model.dart';
+import 'remote_home_data.dart';
 
 class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   // Dependencies

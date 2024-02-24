@@ -1,4 +1,4 @@
-import 'package:yoriha/features/order/domain/repository/order_repository.dart';
+import '../../domain/repository/order_repository.dart';
 
 class OrderRepositoryImpl implements OrderRepository {
   @override

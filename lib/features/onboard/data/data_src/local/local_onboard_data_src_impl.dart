@@ -1,7 +1,7 @@
-import 'package:yoriha/config/auth/auth.dart';
-import 'package:yoriha/config/firebase/firebase_manager.dart';
-import 'package:yoriha/config/hive/hive_manager.dart';
-import 'package:yoriha/features/onboard/data/data_src/local/local_onboard_data_src.dart';
+import '../../../../../config/auth/auth.dart';
+import '../../../../../config/firebase/firebase_manager.dart';
+import '../../../../../config/hive/hive_manager.dart';
+import 'local_onboard_data_src.dart';
 
 class OnboardLocalDataSourceImpl implements OnboardLocalDataSource {
   final FirebaseManager fireBaseManager;

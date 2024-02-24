@@ -13,7 +13,8 @@ class OnboardController extends GetxController {
   Future<void> authenticateEmail() async {
     try {
       final result = await registerEmailUseCase();
-      log(result.toString());
+
+      // Get.toNamed('home');
     } catch (error) {
       log(error.toString());
     }

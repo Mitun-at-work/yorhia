@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:yoriha/core/dependencies/injection_container.dart';
 
+import '../../../../core/dependencies/injection_container.dart';
 import '../controller/home_controller.dart';
 import '../widgets/home_loading_state.dart';
 import '../widgets/home_success_state.dart';

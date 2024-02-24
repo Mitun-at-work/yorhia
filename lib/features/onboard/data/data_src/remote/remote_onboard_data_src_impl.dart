@@ -1,24 +1,57 @@
-import 'package:yoriha/config/firebase/firebase_manager.dart';
-import 'package:yoriha/config/hive/hive_manager.dart';
-import 'package:yoriha/features/onboard/data/data_src/remote/remote_onboard_data_src.dart';
+import 'dart:developer';
+
+import 'package:dartz/dartz.dart';
+
+import '../../../../../config/firebase/firebase_manager.dart';
+import '../../../../../config/hive/hive_manager.dart';
+import '../../../../../config/storage/storage.dart';
+import '../../model/user_model.dart';
+import 'remote_onboard_data_src.dart';
 
 class OnboardRemoteDataSourceImpl implements OnboardRemoteDataSource {
   final FirebaseManager firebaseManager;
   final HiveManager hiveManager;
+  final RunTimeStorageManager runTimeStorageManager;
 
-  OnboardRemoteDataSourceImpl(this.firebaseManager, this.hiveManager);
+  OnboardRemoteDataSourceImpl(
+      this.firebaseManager, this.hiveManager, this.runTimeStorageManager);
 
   @override
-  Future<void> authenticateUserMail() async {
-    final Map<String, dynamic> userData =
-        await firebaseManager.authenticateGmail();
+  Future<Either<void, UserModel>> fetchUserFromCollection(String userId) async {
+    // Fetch the gmail Id in the user collection
+    final fetchedDocument =
+        await firebaseManager.fetchDocumentIdFromCollection(userId, 'users');
 
-    // final
+    if (fetchedDocument != null) {
+      return Right(UserModel.fromMap(fetchedDocument));
+    }
+
+    return const Left(null);
   }
 
   @override
-  Future<void> fetchUserFromCollection(String userId) {
-    // TODO: implement fetchUserFromCollection
-    throw UnimplementedError();
+  Future<bool> authenticateUserMail() async {
+    //
+    late UserModel cacheData;
+
+    final Map<String, String> userData =
+        await firebaseManager.authenticateGmail();
+
+    final result = await fetchUserFromCollection(userData['user_mail']!);
+
+    log(result.toString());
+
+    result.fold(
+      (left) => null,
+      (right) => cacheData = right,
+    );
+
+    if (result.isRight()) {
+      // Storing the data in runtime
+      await runTimeStorageManager.cacheDataRuntime(
+          'user_profile', cacheData.toMap());
+      return true;
+    }
+    return false;
   }
 }

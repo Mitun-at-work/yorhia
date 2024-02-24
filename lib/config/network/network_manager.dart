@@ -1,9 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 
 class NetworkManager {
-  Connectivity connectivity;
-
-  NetworkManager(this.connectivity);
+  final Connectivity connectivity = Connectivity();
 
   // Check Whether the device is connected to internet
   Future<bool> isConnected() async {

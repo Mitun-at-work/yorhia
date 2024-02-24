@@ -1,10 +1,8 @@
-import 'package:yoriha/core/usecase/use_case.dart';
+import '../../../../core/usecase/use_case.dart';
 
-class SubmitOrderUseCae implements UseCase<void, int> {
+class SubmitOrderUseCase implements UseCase<void, void> {
   @override
-  Future<void> call({int params}) {
-    // TODO: implement call
+  Future<void> call({void params}) {
     throw UnimplementedError();
   }
-  //
 }

@@ -4,13 +4,19 @@ import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:yoriha/features/home/data/data_src/remote/remote_home.dart';
-import 'package:yoriha/features/home/data/data_src/remote/remote_home_data.dart';
+import '../../config/network/network_manager.dart';
+import '../../config/storage/storage.dart';
+import '../../config/storage/storage_implementation.dart';
+import '../../features/home/data/data_src/remote/remote_home.dart';
+import '../../features/home/data/data_src/remote/remote_home_data.dart';
+import '../../features/onboard/data/data_src/local/local_onboard_data_src.dart';
+import '../../features/onboard/data/data_src/local/local_onboard_data_src_impl.dart';
+import '../../features/onboard/data/data_src/remote/remote_onboard_data_src.dart';
+import '../../features/onboard/data/data_src/remote/remote_onboard_data_src_impl.dart';
 
 import '../../config/auth/auth.dart';
 import '../../config/firebase/firebase_manager.dart';
 import '../../config/hive/hive_manager.dart';
-import '../../config/network/network_manager.dart';
 import '../../features/home/data/repository/home_repository_impl.dart';
 import '../../features/home/domain/repository/home_repository.dart';
 import '../../features/home/domain/usecase/fetch_products.dart';
@@ -41,8 +47,13 @@ class InjectionDependencies {
     serviceLocator.registerSingleton<Connectivity>(Connectivity());
 
     // Network Manager
+    serviceLocator.registerSingleton<NetworkManager>(
+      NetworkManager(),
+    );
+
+    // RunTime Storage Manager
     serviceLocator
-        .registerSingleton<NetworkManager>(NetworkManager(serviceLocator()));
+        .registerSingleton<RunTimeStorageManager>(RunTimeStorageManagerImpl());
   }
 
   //
@@ -70,9 +81,9 @@ class InjectionDependencies {
   Future<void> injectRepository() async {
     // Onboard Repository
     serviceLocator.registerSingleton<OnboardRepository>(OnboardRepositoryImpl(
-        serviceLocator<Auth>(),
-        serviceLocator<FirebaseManager>(),
-        serviceLocator<HiveManager>()));
+      serviceLocator(),
+      serviceLocator(),
+    ));
 
     // Home Repository
     serviceLocator.registerSingleton<HomeRepository>(
@@ -94,11 +105,25 @@ class InjectionDependencies {
         () => FetchProductsUseCase(serviceLocator()));
   }
 
-  Future<void> injectLocalDataSources() async {}
+  Future<void> injectLocalDataSources() async {
+    // Onboard Local Data Source
+    serviceLocator.registerSingleton<OnboardLocalDataSource>(
+      OnboardLocalDataSourceImpl(
+        serviceLocator(),
+        serviceLocator(),
+        serviceLocator(),
+      ),
+    );
+  }
 
   Future<void> injectRemoteDataSources() async {
     serviceLocator.registerSingleton<HomeRemoteDataSource>(
         HomeRemoteDataSourceImpl(serviceLocator(), serviceLocator()));
+
+    serviceLocator.registerSingleton<OnboardRemoteDataSource>(
+      OnboardRemoteDataSourceImpl(
+          serviceLocator(), serviceLocator(), serviceLocator()),
+    );
   }
 
   Future<void> injectDataSources() async {
