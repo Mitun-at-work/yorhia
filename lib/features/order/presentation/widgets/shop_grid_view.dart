@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/constants/app_themes.dart';
-import '../../../home/data/model/product_model.dart';
+import '../../../home/domain/entity/product_entity.dart';
 import '../controller/shop_controller.dart';
 
 class ShopGridView extends StatelessWidget {
@@ -19,9 +19,9 @@ class ShopGridView extends StatelessWidget {
           crossAxisCount: 2,
           mainAxisSpacing: 20.h,
         ),
-        itemCount: controller.productModels.length,
+        itemCount: controller.productEntity.length,
         itemBuilder: (context, index) {
-          final ProductModel productModel = controller.productModels[index];
+          final ProductEntity productEntity = controller.productEntity[index];
           return GestureDetector(
             onTap: () => controller.updateProductSelected(index),
             child: Container(
@@ -45,16 +45,16 @@ class ShopGridView extends StatelessWidget {
                   ),
                   ListTile(
                     selected: controller.productIsSelected[index],
-                    title: Text(productModel.productName),
+                    title: Text(productEntity.productName),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
                           padding: EdgeInsets.only(top: 2.h, bottom: 10.h),
-                          child: Text(productModel.productQuantity.toString()),
+                          child: Text(productEntity.productQuantity.toString()),
                         ),
                         Text(
-                          productModel.productPrice.toString(),
+                          productEntity.productPrice.toString(),
                           style: const TextStyle(
                             fontSize: 18,
                           ),

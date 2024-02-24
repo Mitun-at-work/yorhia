@@ -4,6 +4,12 @@ import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
+import '../../features/home/presentation/controller/page_controller.dart';
+import '../../features/order/data/data_src/remote/remote_order_data_src.dart';
+import '../../features/order/data/data_src/remote/remote_order_data_src_impl.dart';
+import '../../features/order/data/repository/order_repository_impl.dart';
+import '../../features/order/domain/repository/order_repository.dart';
+import '../../features/order/domain/usecase/place_order.dart';
 import '../../config/network/network_manager.dart';
 import '../../config/storage/storage.dart';
 import '../../config/storage/storage_implementation.dart';
@@ -74,37 +80,30 @@ class InjectionDependencies {
     // Onboard Controller
     Get.put(OnboardController(serviceLocator()));
 
-    // Home Controller
+    // Screen Controller
+    Get.put(ScreenController());
   }
 
   // Repository Injection
   Future<void> injectRepository() async {
+    // Home Repository
+    serviceLocator.registerSingleton<HomeRepository>(HomeRepositoryImpl(
+      serviceLocator(),
+      serviceLocator(),
+    ));
+
     // Onboard Repository
     serviceLocator.registerSingleton<OnboardRepository>(OnboardRepositoryImpl(
       serviceLocator(),
       serviceLocator(),
     ));
 
-    // Home Repository
-    serviceLocator.registerSingleton<HomeRepository>(
-        HomeRepositoryImpl(serviceLocator()));
+    // Order Repository
+    serviceLocator.registerSingleton<OrderRepository>(
+        OrderRepositoryImpl(serviceLocator()));
   }
 
-  // UseCase Injection
-  Future<void> injectUseCases() async {
-    // Register Email UseCase
-    serviceLocator.registerSingleton<RegisterEmailUseCase>(
-        RegisterEmailUseCase(serviceLocator()));
-
-    // Authenticate UseCase
-    serviceLocator.registerSingleton<AuthenticateUserCase>(
-        AuthenticateUserCase(serviceLocator()));
-
-    // Fetch Product UseCase
-    serviceLocator.registerLazySingleton<FetchProductsUseCase>(
-        () => FetchProductsUseCase(serviceLocator()));
-  }
-
+  // Local Data Source Injection
   Future<void> injectLocalDataSources() async {
     // Onboard Local Data Source
     serviceLocator.registerSingleton<OnboardLocalDataSource>(
@@ -116,19 +115,45 @@ class InjectionDependencies {
     );
   }
 
+  // Remote Data Source Injection
   Future<void> injectRemoteDataSources() async {
-    serviceLocator.registerSingleton<HomeRemoteDataSource>(
-        HomeRemoteDataSourceImpl(serviceLocator(), serviceLocator()));
-
+    // Onboard
     serviceLocator.registerSingleton<OnboardRemoteDataSource>(
       OnboardRemoteDataSourceImpl(
           serviceLocator(), serviceLocator(), serviceLocator()),
     );
+
+    // Home
+    serviceLocator.registerSingleton<HomeRemoteDataSource>(
+        HomeRemoteDataSourceImpl(serviceLocator(), serviceLocator()));
+
+    // Order
+    serviceLocator.registerSingleton<OrderRemoteDataSourceRepository>(
+        OrderRemoteDataSrcImpl(serviceLocator()));
   }
 
+  // Injects both Remote & Local Data Sources
   Future<void> injectDataSources() async {
     await injectLocalDataSources();
     await injectRemoteDataSources();
+  }
+
+  Future<void> injectUseCases() async {
+    // Register Email UseCase [Onboard]
+    serviceLocator.registerSingleton<RegisterEmailUseCase>(
+        RegisterEmailUseCase(serviceLocator()));
+
+    // Authenticate UseCase [Onboard]
+    serviceLocator.registerSingleton<AuthenticateUserCase>(
+        AuthenticateUserCase(serviceLocator()));
+
+    // Fetch Product UseCase [Home]
+    serviceLocator.registerSingleton<FetchProductsUseCase>(
+        FetchProductsUseCase(serviceLocator()));
+
+    // Place Order UseCase [Order]
+    serviceLocator.registerSingleton<PlaceOrderUseCase>(
+        PlaceOrderUseCase(serviceLocator()));
   }
 
   // Inject Container

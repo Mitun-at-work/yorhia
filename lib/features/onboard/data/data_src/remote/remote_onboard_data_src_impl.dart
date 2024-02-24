@@ -18,15 +18,21 @@ class OnboardRemoteDataSourceImpl implements OnboardRemoteDataSource {
 
   @override
   Future<Either<void, UserModel>> fetchUserFromCollection(String userId) async {
+    late Map<String, dynamic> userData;
+
     // Fetch the gmail Id in the user collection
-    final fetchedDocument =
+    final Either<Map<String, dynamic>, void> result =
         await firebaseManager.fetchDocumentIdFromCollection(userId, 'users');
 
-    if (fetchedDocument != null) {
-      return Right(UserModel.fromMap(fetchedDocument));
-    }
+    result.fold(
+      (left) => userData = left,
+      (right) => null,
+    );
 
-    return const Left(null);
+    if (result.isLeft()) {
+      return Right(UserModel.fromMap(userData));
+    }
+    return left(null);
   }
 
   @override

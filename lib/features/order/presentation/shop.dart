@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../core/dependencies/injection_container.dart';
 import 'controller/shop_controller.dart';
 import 'widgets/bottom_bar.dart';
 import 'widgets/build_shop_app_bar.dart';
@@ -11,6 +12,7 @@ class ShopScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(ShopController(serviceLocator(), serviceLocator()));
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: buildShopAppBar(),

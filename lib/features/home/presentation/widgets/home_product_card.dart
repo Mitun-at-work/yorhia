@@ -16,45 +16,49 @@ class HomeProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Container(
-        width: 150.w,
-        margin: EdgeInsets.symmetric(
-          vertical: 10.h,
-          horizontal: 10.w,
+        width: 160.w,
+        margin:
+            EdgeInsets.only(top: 10.h, left: 10.w, bottom: 5.h, right: 10.w),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(6.r)),
+          color: Colors.white,
         ),
-        color: Colors.white,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 10.h),
-              height: 150.h,
-              decoration: BoxDecoration(
-                color: AppTheme.appHighLightColor.withOpacity(.1),
-                borderRadius: BorderRadius.all(Radius.circular(4.r)),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 5.w),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 10.h),
+                height: 150.h,
+                decoration: BoxDecoration(
+                  color: AppTheme.appHighLightColor.withOpacity(.1),
+                  borderRadius: BorderRadius.all(Radius.circular(4.r)),
+                ),
               ),
-            ),
-            Text(
-              productModel.productName,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
+              Text(
+                productModel.productName,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
               ),
-            ),
-            Text(
-              productModel.productQuantity.toString(),
-              style: const TextStyle(
-                fontWeight: FontWeight.w400,
+              Text(
+                productModel.productQuantity.toString(),
+                style: const TextStyle(
+                  fontWeight: FontWeight.w400,
+                ),
               ),
-            ),
-            Text(
-              productModel.productPrice.toString(),
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.green,
-                fontSize: 19.sp,
+              Text(
+                productModel.productPrice.toString(),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.green,
+                  fontSize: 19.sp,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

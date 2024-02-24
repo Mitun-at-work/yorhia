@@ -4,26 +4,21 @@ import 'storage.dart';
 
 class RunTimeStorageManagerImpl implements RunTimeStorageManager {
   // Data Holder
-  final Map<String, Map<String, dynamic>> storageCache;
+  RunTimeStorageManagerImpl() : storageCache = <String, dynamic>{};
 
+  final Map<String, dynamic> storageCache;
   // Initialiser
-  RunTimeStorageManagerImpl({
-    this.storageCache = const {},
-  });
 
   @override
-  Future<void> cacheDataRuntime(
-      String dictKey, Map<String, dynamic> storeValue) async {
+  Future<void> cacheDataRuntime(String dictKey, dynamic storeValue) async {
     storageCache[dictKey] = storeValue;
     return;
   }
 
   @override
-  Future<Either<Map<String, dynamic>, void>> fetchDataRuntime(
-      String dictKey) async {
+  Future<Either<dynamic, void>> fetchDataRuntime(String dictKey) async {
     if (storageCache.containsKey(dictKey)) {
-      final Map<String, dynamic> requestedData =
-          storageCache[dictKey] as Map<String, dynamic>;
+      final requestedData = storageCache[dictKey];
       return Left(requestedData);
     }
     return const Right(null);

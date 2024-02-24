@@ -19,9 +19,9 @@ class HomeProductCarousel extends StatelessWidget {
     return GestureDetector(
       onTap: () => Get.toNamed(AppRouteNames.shopRoute),
       child: SizedBox(
-        height: 250.h,
+        height: 260.h,
         child: ListView.builder(
-          padding: EdgeInsets.only(left: 10.w, right: 20.w),
+          padding: EdgeInsets.only(left: 1.w, right: 20.w),
           scrollDirection: Axis.horizontal,
           itemCount: productModel.length > 3 ? 3 : productModel.length,
           itemBuilder: (context, index) {

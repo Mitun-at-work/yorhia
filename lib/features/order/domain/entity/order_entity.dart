@@ -4,8 +4,8 @@ class OrderEntity {
   final String orderId;
   final String orderDate;
   final String orderTime;
-  final String orderValue;
-  final Map<String, dynamic> orderProducts;
+  final double orderValue;
+  final List<String> orderProducts;
   final String orderPaymentId;
 
   OrderEntity({

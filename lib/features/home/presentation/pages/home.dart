@@ -14,24 +14,18 @@ class HomeScreen extends StatelessWidget {
     final HomeController homeController =
         Get.put(HomeController(serviceLocator()));
 
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 2,
-        title: const Text("Welcome Mitun !"),
-      ),
-      body: homeController.obx(
-        onLoading: const HomeLoadingState(isLoading: true),
-        onEmpty: const HomeLoadingState(isLoading: false),
-        onError: (error) {
-          return const CircleAvatar();
-        },
-        (state) {
-          if (state != null) {
-            return HomeSuccessState(state: state);
-          }
-          return const SizedBox();
-        },
-      ),
+    return homeController.obx(
+      onLoading: const HomeLoadingState(isLoading: true),
+      onEmpty: const HomeLoadingState(isLoading: false),
+      onError: (error) {
+        return const CircleAvatar();
+      },
+      (state) {
+        if (state != null) {
+          return HomeSuccessState(state: state);
+        }
+        return const SizedBox();
+      },
     );
   }
 }

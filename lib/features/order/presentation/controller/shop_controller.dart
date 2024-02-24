@@ -1,42 +1,97 @@
-import 'dart:developer';
-
 import 'package:get/get.dart';
-
-import '../../../home/data/model/product_model.dart';
+import '../../../../config/storage/storage.dart';
+import '../../../home/domain/entity/product_entity.dart';
+import '../../domain/entity/order_entity.dart';
+import '../../domain/usecase/place_order.dart';
 
 class ShopController extends GetxController {
+  // Initialiser
+  final RunTimeStorageManager runTimeStorageManager;
+  final PlaceOrderUseCase placeOrderUseCase;
+
+  ShopController(this.runTimeStorageManager, this.placeOrderUseCase);
+
+  // Observable Variables
   RxInt cartItmes = 0.obs;
-  RxList productModels = <ProductModel>[].obs;
+  RxList productEntity = <ProductEntity>[].obs;
   RxList productIsSelected = <bool>[].obs;
   RxDouble orderTotal = 0.0.obs;
 
-  //
-  // @override
-  // void onInit() {
-  //   productModels.value = constantsHolder.fetchedData;
-  //   for (ProductModel _ in constantsHolder.fetchedData) {
-  //     productIsSelected.add(false);
-  //   }
-  //   super.onInit();
-  // }
+  @override
+  void onInit() async {
+    await fetchProducts();
+    update();
+    super.onInit();
+  }
+
+  Future<void> fetchProducts() async {
+    // Request Cached Data from the RunTime Cache Network
+    final cacheResult =
+        await runTimeStorageManager.fetchDataRuntime('product_list');
+
+    cacheResult.fold(
+      (left) => productEntity.value = left,
+      (r) => null,
+    );
+
+    // Iterate the result
+    for (ProductEntity _ in productEntity) {
+      productIsSelected.add(false);
+    }
+  }
 
   void updateProductSelected(int index) {
     if (productIsSelected[index]) {
       cartItmes.value--;
-
-      orderTotal.value -= productModels[index].productPrice;
+      orderTotal.value -= productEntity[index].productPrice;
     } else {
       cartItmes.value++;
-      orderTotal.value += productModels[index].productPrice;
+      orderTotal.value += productEntity[index].productPrice;
     }
-
     productIsSelected[index] = !productIsSelected[index];
-
-    update();
-    log("Updated Preferences");
   }
 
-  void processPayments() {}
+  Future<void> processPayments() async {}
 
-  void calculateTotal() {}
+  Future<void> calculateTotal() async {}
+
+  OrderEntity generateOrderEntity() {
+    // Random Number
+    final String randomOrderId =
+        DateTime.now().millisecondsSinceEpoch.toString();
+
+    // Order Products Generation
+    final List<String> orderedProducts = [];
+
+    for (ProductEntity entity in productEntity) {
+      orderedProducts.add("${entity.productName} : ${entity.productQuantity}g");
+    }
+
+    // Date Time Generation
+    final DateTime dateTime = DateTime.now();
+
+    final String orderRequestDate =
+        "${dateTime.day}/${dateTime.month}/${dateTime.year}";
+
+    final String orderRequestTime = "${dateTime.hour}:${dateTime.minute}";
+
+    // Order Payment Id
+
+    const String paymentId = "";
+
+    // Order Entity
+    return OrderEntity(
+      orderId: randomOrderId,
+      orderDate: orderRequestDate,
+      orderTime: orderRequestTime,
+      orderValue: orderTotal.value,
+      orderProducts: orderedProducts,
+      orderPaymentId: paymentId,
+    );
+  }
+
+  Future<void> executeOrder() async {
+    OrderEntity orderEntity = generateOrderEntity();
+    await placeOrderUseCase(params: orderEntity);
+  }
 }
