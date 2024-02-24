@@ -1,12 +1,12 @@
 import '../../../../config/auth/auth.dart';
-import '../../../../config/firebase/firebase.dart';
-import '../../../../config/hive/hive.dart';
+import '../../../../config/firebase/firebase_manager.dart';
+import '../../../../config/hive/hive_manager.dart';
 import '../../domain/repository/onboard_repository.dart';
 
 class OnboardRepositoryImpl implements OnboardRepository {
   // Initialisation
   final FirebaseManager fireBaseManager;
-  final HiveManger hiveManger;
+  final HiveManager hiveManger;
   final Auth authManager;
 
   // Initialiser
@@ -16,11 +16,10 @@ class OnboardRepositoryImpl implements OnboardRepository {
   @override
   Future<bool> authenticateUser() async {
     //
-
     final Map<String, dynamic> userProfileMap =
         await fireBaseManager.authenticateGmail();
 
-    final fetchedData = await fireBaseManager.fetchDocumentIDFromCollection(
+    final fetchedData = await fireBaseManager.fetchDocumentIdFromCollection(
         userProfileMap['user_mail'], 'user');
 
     if (fetchedData != null) {

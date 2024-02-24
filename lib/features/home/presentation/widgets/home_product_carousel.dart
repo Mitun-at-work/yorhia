@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/routes/app_routes.dart';
-import '../../data/model/product_mode.dart';
+import '../../domain/entity/product_entity.dart';
 import 'home_product_card.dart';
 
 class HomeProductCarousel extends StatelessWidget {
@@ -12,7 +12,7 @@ class HomeProductCarousel extends StatelessWidget {
     required this.productModel,
   });
 
-  final List<ProductModel> productModel;
+  final List<ProductEntity> productModel;
 
   @override
   Widget build(BuildContext context) {

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/constants/app_themes.dart';
-import '../../../home/data/model/product_mode.dart';
+import '../../../home/data/model/product_model.dart';
 import '../controller/shop_controller.dart';
 
 class ShopGridView extends StatelessWidget {
@@ -51,7 +51,7 @@ class ShopGridView extends StatelessWidget {
                       children: [
                         Padding(
                           padding: EdgeInsets.only(top: 2.h, bottom: 10.h),
-                          child: Text(productModel.productQuantity),
+                          child: Text(productModel.productQuantity.toString()),
                         ),
                         Text(
                           productModel.productPrice.toString(),

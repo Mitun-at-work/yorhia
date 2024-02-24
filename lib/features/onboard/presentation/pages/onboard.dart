@@ -27,9 +27,7 @@ class OnboardScreen extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () {
-                  print("Hello");
-                },
+                onPressed: () {},
                 child: const Text("Click Me"),
               ),
             ],

@@ -1,8 +1,8 @@
-import '../hive/hive.dart';
+import '../hive/hive_manager.dart';
 
 class Auth {
   // Utilising the Hive Class
-  final HiveManger hive;
+  final HiveManager hive;
 
   // Auth Class Initialiser
   Auth(this.hive);

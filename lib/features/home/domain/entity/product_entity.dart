@@ -1,13 +1,10 @@
+import '../../data/model/product_model.dart';
+
 class ProductEntity {
   final String productName;
-
   final double productPrice;
-
-  final String productQuantity;
-
+  final int productQuantity;
   final String imgLink;
-
-  // Product Moedl COnstructor
 
   ProductEntity({
     required this.productName,
@@ -16,12 +13,12 @@ class ProductEntity {
     required this.imgLink,
   });
 
-  factory ProductEntity.fromMap(Map<String, dynamic> jsonResponse) {
+  factory ProductEntity.fromProductModel(ProductModel productModel) {
     return ProductEntity(
-      productName: jsonResponse['productName'],
-      productPrice: double.parse(jsonResponse['productPrice']),
-      productQuantity: jsonResponse['productQuantity'],
-      imgLink: jsonResponse['imgLink'],
+      productName: productModel.productName,
+      productPrice: productModel.productPrice,
+      productQuantity: productModel.productQuantity,
+      imgLink: productModel.imgLink,
     );
   }
 }

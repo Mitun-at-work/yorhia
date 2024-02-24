@@ -2,8 +2,7 @@ import 'dart:developer';
 
 import 'package:get/get.dart';
 
-import '../../../../core/constants/constants.dart';
-import '../../../home/data/model/product_mode.dart';
+import '../../../home/data/model/product_model.dart';
 
 class ShopController extends GetxController {
   RxInt cartItmes = 0.obs;
@@ -12,14 +11,14 @@ class ShopController extends GetxController {
   RxDouble orderTotal = 0.0.obs;
 
   //
-  @override
-  void onInit() {
-    productModels.value = constantsHolder.fetchedData;
-    for (ProductModel _ in constantsHolder.fetchedData) {
-      productIsSelected.add(false);
-    }
-    super.onInit();
-  }
+  // @override
+  // void onInit() {
+  //   productModels.value = constantsHolder.fetchedData;
+  //   for (ProductModel _ in constantsHolder.fetchedData) {
+  //     productIsSelected.add(false);
+  //   }
+  //   super.onInit();
+  // }
 
   void updateProductSelected(int index) {
     if (productIsSelected[index]) {

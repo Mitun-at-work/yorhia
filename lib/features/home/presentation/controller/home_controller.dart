@@ -1,21 +1,30 @@
-// import 'package:get/get.dart';
-// import 'package:yoriha/repository/home_repository.dart';
-// import '../data/model/product_mode.dart';
+import 'dart:developer';
 
-// class HomeController extends GetxController
-//     with StateMixin<List<ProductModel>> {
-//   final HomeRepository homeRepository;
+import 'package:get/get.dart';
 
-//   HomeController(this.homeRepository);
+import '../../domain/entity/product_entity.dart';
+import '../../domain/usecase/fetch_products.dart';
 
-//   // HomeController Initialisation
-//   @override
-//   void onInit() async {
-//     super.onInit();
-//     await fetchProducts();
-//   }
+class HomeController extends GetxController
+    with StateMixin<List<ProductEntity>> {
+  // Dependenecies
+  final FetchProductsUseCase fetchProductsUseCase;
 
-//   Future<ProductModel> fetchProducts() async {
-//     return await homeRepository.getProductList();
-//   }
-// }
+  HomeController(this.fetchProductsUseCase);
+
+  @override
+  void onInit() async {
+    await fetchProducts();
+    super.onInit();
+  }
+
+  Future<void> fetchProducts() async {
+    final List<ProductEntity> productEntityList = await fetchProductsUseCase();
+
+    if (productEntityList.isEmpty) {
+      change(null, status: RxStatus.empty());
+    } else {
+      change(productEntityList, status: RxStatus.success());
+    }
+  }
+}

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/constants/app_themes.dart';
-import '../../data/model/product_mode.dart';
+import '../../domain/entity/product_entity.dart';
 
 class HomeProductCard extends StatelessWidget {
   const HomeProductCard({
@@ -10,7 +10,7 @@ class HomeProductCard extends StatelessWidget {
     required this.productModel,
   });
 
-  final ProductModel productModel;
+  final ProductEntity productModel;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class HomeProductCard extends StatelessWidget {
               ),
             ),
             Text(
-              productModel.productQuantity,
+              productModel.productQuantity.toString(),
               style: const TextStyle(
                 fontWeight: FontWeight.w400,
               ),

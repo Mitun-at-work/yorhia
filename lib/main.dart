@@ -8,7 +8,7 @@ import 'core/routes/routes.dart';
 import 'core/theme/theme.dart';
 
 Future<void> main() async {
-  //
+  //Initialise Widgets
   WidgetsFlutterBinding.ensureInitialized();
 
   //
@@ -27,7 +27,7 @@ Future<void> main() async {
         debugShowCheckedModeBanner: false,
         theme: getTheme,
         routes: appRoutes.getRoutes(),
-        initialRoute: AppRouteNames.onboardRoute,
+        initialRoute: AppRouteNames.homeRoute,
       ),
     ),
   );

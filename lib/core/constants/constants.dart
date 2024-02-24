@@ -1,18 +1,18 @@
-import 'package:hive/hive.dart';
+// import 'package:hive/hive.dart';
 
-import '../../features/home/data/model/product_mode.dart';
+// import '../../features/home/data/model/product_model.dart';
 
-class ConstantsHolder {
-  List<ProductModel> fetchedData;
+// class ConstantsHolder {
+//   List<ProductModel> fetchedData;
 
-  String downloadDirectory;
+//   String downloadDirectory;
 
-  late Box userDetailsBox;
+//   late Box userDetailsBox;
 
-  ConstantsHolder({
-    this.fetchedData = const [],
-    this.downloadDirectory = "",
-  });
-}
+//   ConstantsHolder({
+//     this.fetchedData = const [],
+//     this.downloadDirectory = "",
+//   });
+// }
 
-ConstantsHolder constantsHolder = ConstantsHolder();
+// ConstantsHolder constantsHolder = ConstantsHolder();

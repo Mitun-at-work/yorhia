@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
+import '../../features/home/presentation/pages/home.dart';
 import '../../features/onboard/presentation/pages/onboard.dart';
-import '../../features/shop/presentation/shop.dart';
+import '../../features/order/presentation/shop.dart';
 import 'app_routes.dart';
 
 class AppRoutes {
@@ -11,14 +13,5 @@ class AppRoutes {
       AppRouteNames.onboardRoute: (context) => const OnboardScreen(),
       AppRouteNames.paymentPage: (context) => const Scaffold(),
     };
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
   }
 }

@@ -1,8 +1,6 @@
-import 'dart:developer';
-
 import 'package:hive/hive.dart';
 
-class HiveManger {
+class HiveManager {
   // Initialisation Class Data
   String boxName, userDataMap;
 
@@ -10,7 +8,7 @@ class HiveManger {
   late Box _userBox;
 
   // Initialiser
-  HiveManger({
+  HiveManager({
     this.boxName = "user_details",
     this.userDataMap = "user_profile",
   });

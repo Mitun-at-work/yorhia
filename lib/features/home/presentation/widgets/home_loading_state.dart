@@ -30,9 +30,18 @@ class HomeLoadingState extends StatelessWidget {
                   ],
                 ),
               )
-            : const Text(
-                "Unfortunately Nothing to show here",
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+            : Center(
+                child: Padding(
+                  padding:
+                      EdgeInsets.symmetric(vertical: 10.h, horizontal: 15.w),
+                  child: const Text(
+                    "No Announcements Posted",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
               )
       ],
     );

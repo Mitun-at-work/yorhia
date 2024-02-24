@@ -2,18 +2,17 @@ import 'dart:developer';
 
 import 'package:get/get.dart';
 
-import '../../domain/usecase/authenticate_user.dart';
+import '../../domain/usecase/register_email.dart';
 
 class OnboardController extends GetxController {
-  final AuthenticateUserCase authenticateUserCase;
+  final RegisterEmailUseCase registerEmailUseCase;
 
   //
-  OnboardController(this.authenticateUserCase);
+  OnboardController(this.registerEmailUseCase);
 
   Future<void> authenticateEmail() async {
-    log("Auth Manager");
     try {
-      final result = await authenticateUserCase();
+      final result = await registerEmailUseCase();
       log(result.toString());
     } catch (error) {
       log(error.toString());
