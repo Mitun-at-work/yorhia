@@ -15,7 +15,7 @@ Future<void> main() async {
   final InjectionDependencies dependenciesContainer = InjectionDependencies();
   final AppRoutes appRoutes = AppRoutes();
 
-  // Dependency Injection
+  // Dependency Injection & Inversion
   await dependenciesContainer.inject();
 
   runApp(
