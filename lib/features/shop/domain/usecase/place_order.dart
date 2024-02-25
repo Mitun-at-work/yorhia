@@ -1,10 +1,10 @@
 import '../../../../core/usecase/use_case.dart';
 import '../entity/order_entity.dart';
-import '../repository/order_repository.dart';
+import '../repository/shop_repository.dart';
 
 class PlaceOrderUseCase implements UseCase<void, OrderEntity> {
   //
-  final OrderRepository orderRepository;
+  final ShopRepo orderRepository;
 
   //
   PlaceOrderUseCase(this.orderRepository);

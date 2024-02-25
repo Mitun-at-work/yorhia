@@ -1,5 +1,5 @@
 import '../entity/order_entity.dart';
 
-abstract class OrderRepository {
+abstract class ShopRepo {
   Future<void> submitOrderRequest(OrderEntity orderEntity);
 }

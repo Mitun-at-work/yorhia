@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:get/get.dart';
+import 'package:get/get_rx/get_rx.dart';
 import '../../../../config/storage/storage.dart';
 import '../../../home/domain/entity/product_entity.dart';
 import '../../domain/entity/order_entity.dart';
@@ -15,6 +18,7 @@ class ShopController extends GetxController {
   RxInt cartItmes = 0.obs;
   RxList productEntity = <ProductEntity>[].obs;
   RxList productIsSelected = <bool>[].obs;
+  RxList productQuantity = <int>[].obs;
   RxDouble orderTotal = 0.0.obs;
 
   @override
@@ -37,10 +41,11 @@ class ShopController extends GetxController {
     // Iterate the result
     for (ProductEntity _ in productEntity) {
       productIsSelected.add(false);
+      productQuantity.add(0);
     }
   }
 
-  void updateProductSelected(int index) {
+  void updateProductSelected(int index, int quantity) {
     if (productIsSelected[index]) {
       cartItmes.value--;
       orderTotal.value -= productEntity[index].productPrice;
@@ -49,49 +54,50 @@ class ShopController extends GetxController {
       orderTotal.value += productEntity[index].productPrice;
     }
     productIsSelected[index] = !productIsSelected[index];
+    update();
   }
 
   Future<void> processPayments() async {}
 
   Future<void> calculateTotal() async {}
 
-  OrderEntity generateOrderEntity() {
-    // Random Number
-    final String randomOrderId =
-        DateTime.now().millisecondsSinceEpoch.toString();
+  // OrderEntity generateOrderEntity() {
+  //   // Random Number
+  //   final String randomOrderId =
+  //       DateTime.now().millisecondsSinceEpoch.toString();
 
-    // Order Products Generation
-    final List<String> orderedProducts = [];
+  //   // Order Products Generation
+  //   final List<String> orderedProducts = [];
 
-    for (ProductEntity entity in productEntity) {
-      orderedProducts.add("${entity.productName} : ${entity.productQuantity}g");
-    }
+  //   for (ProductEntity entity in productEntity) {
+  //     orderedProducts.add("${entity.productName} : ${entity.productQuantity}g");
+  //   }
 
-    // Date Time Generation
-    final DateTime dateTime = DateTime.now();
+  //   // Date Time Generation
+  //   final DateTime dateTime = DateTime.now();
 
-    final String orderRequestDate =
-        "${dateTime.day}/${dateTime.month}/${dateTime.year}";
+  //   final String orderRequestDate =
+  //       "${dateTime.day}/${dateTime.month}/${dateTime.year}";
 
-    final String orderRequestTime = "${dateTime.hour}:${dateTime.minute}";
+  //   final String orderRequestTime = "${dateTime.hour}:${dateTime.minute}";
 
-    // Order Payment Id
+  //   // Order Payment Id
 
-    const String paymentId = "";
+  //   const String paymentId = "";
 
-    // Order Entity
-    return OrderEntity(
-      orderId: randomOrderId,
-      orderDate: orderRequestDate,
-      orderTime: orderRequestTime,
-      orderValue: orderTotal.value,
-      orderProducts: orderedProducts,
-      orderPaymentId: paymentId,
-    );
-  }
+  //   // Order Entity
+  //   // return OrderEntity(
+  //   //   orderId: randomOrderId,
+  //   //   orderDate: orderRequestDate,
+  //   //   orderTime: orderRequestTime,
+  //   //   orderValue: orderTotal.value,
+  //   //   orderProducts: orderedProducts,
+  //   //   orderPaymentId: paymentId,
+  //   // );
+  // }
 
   Future<void> executeOrder() async {
-    OrderEntity orderEntity = generateOrderEntity();
-    await placeOrderUseCase(params: orderEntity);
+    // OrderEntity orderEntity = generateOrderEntity();
+    // await placeOrderUseCase(params: orderEntity);
   }
 }

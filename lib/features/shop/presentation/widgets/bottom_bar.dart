@@ -38,7 +38,7 @@ class OrderBottomBar extends StatelessWidget {
               );
             }),
             TextButton(
-              onPressed: () => Get.toNamed(AppRouteNames.paymentPage),
+              onPressed: () => Get.toNamed(AppRouteNames.homeRoute),
               child: const Text(
                 "Check Out",
                 style: TextStyle(

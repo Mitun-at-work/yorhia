@@ -1,13 +1,13 @@
 import '../../../../../config/firebase/firebase_manager.dart';
-import 'remote_order_data_src.dart';
+import 'remote_shop_data_src.dart';
 import '../../../domain/entity/order_entity.dart';
 
-class OrderRemoteDataSrcImpl implements OrderRemoteDataSourceRepository {
+class ShopRemoteDataSrcImpl implements ShopRemoteDataSrc {
   //
   final FirebaseManager firebaseManager;
 
   //
-  OrderRemoteDataSrcImpl(this.firebaseManager);
+  ShopRemoteDataSrcImpl(this.firebaseManager);
 
   @override
   Future<void> updateOrder(OrderEntity orderEntity) async {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:yoriha/features/profile/presentation/profile_screen.dart';
 import '../../../../core/constants/bottom_navigation_bar.dart';
 import '../controller/page_controller.dart';
 import 'home_product_showcase.dart';
@@ -19,7 +20,13 @@ class HomeSuccessState extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 1,
-        title: const Text("Welcome Mitun"),
+        title: GetX<ScreenController>(builder: (
+          controller,
+        ) {
+          return Text(
+            controller.pageIdx.value == 0 ? "Welocme Mitun!" : "Profile Screen",
+          );
+        }),
       ),
       bottomNavigationBar: buildBottomNavigationButton(),
       body: GetX<ScreenController>(builder: (controller) {
@@ -27,7 +34,7 @@ class HomeSuccessState extends StatelessWidget {
           children: [
             controller.pageIdx.value == 0
                 ? HomeProdutDisplay(state: state)
-                : const SizedBox(),
+                : const ProfilScreen(),
           ],
         );
       }),

@@ -3,8 +3,6 @@ class AppRouteNames {
   static String shopRoute = "/shop";
   static String authRoute = "/auth";
   static String onboardRoute = "/onboard";
-  static String loginRote = "/login";
-  static String checkOutPage = "/checkout";
-  static String orderSuccessPage = "/sucess";
-  static String paymentPage = "/pay";
+  static String ordersPage = "/order";
+  static String profilePage = "/profile";
 }

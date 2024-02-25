@@ -5,11 +5,11 @@ import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 import '../../features/home/presentation/controller/page_controller.dart';
-import '../../features/order/data/data_src/remote/remote_order_data_src.dart';
-import '../../features/order/data/data_src/remote/remote_order_data_src_impl.dart';
-import '../../features/order/data/repository/order_repository_impl.dart';
-import '../../features/order/domain/repository/order_repository.dart';
-import '../../features/order/domain/usecase/place_order.dart';
+import '../../features/shop/data/data_src/remote/remote_shop_data_src.dart';
+import '../../features/shop/data/data_src/remote/remote_shop_data_src_impl.dart';
+import '../../features/shop/data/repository/shop_repository_impl.dart';
+import '../../features/shop/domain/repository/shop_repository.dart';
+import '../../features/shop/domain/usecase/place_order.dart';
 import '../../config/network/network_manager.dart';
 import '../../config/storage/storage.dart';
 import '../../config/storage/storage_implementation.dart';
@@ -99,8 +99,7 @@ class InjectionDependencies {
     ));
 
     // Order Repository
-    serviceLocator.registerSingleton<OrderRepository>(
-        OrderRepositoryImpl(serviceLocator()));
+    serviceLocator.registerSingleton<ShopRepo>(ShopRepoImpl(serviceLocator()));
   }
 
   // Local Data Source Injection
@@ -128,8 +127,8 @@ class InjectionDependencies {
         HomeRemoteDataSourceImpl(serviceLocator(), serviceLocator()));
 
     // Order
-    serviceLocator.registerSingleton<OrderRemoteDataSourceRepository>(
-        OrderRemoteDataSrcImpl(serviceLocator()));
+    serviceLocator.registerSingleton<ShopRemoteDataSrc>(
+        ShopRemoteDataSrcImpl(serviceLocator()));
   }
 
   // Injects both Remote & Local Data Sources

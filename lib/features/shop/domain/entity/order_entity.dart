@@ -1,11 +1,11 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:yoriha/features/shop/data/model/order_model.dart';
 
 class OrderEntity {
   final String orderId;
   final String orderDate;
   final String orderTime;
   final double orderValue;
-  final List<String> orderProducts;
+  final List<Map<String, int>> orderProducts;
   final String orderPaymentId;
 
   OrderEntity({
@@ -27,4 +27,6 @@ class OrderEntity {
       'orderPaymentId': orderPaymentId,
     };
   }
+
+  //
 }
