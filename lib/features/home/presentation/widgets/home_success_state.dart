@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:yoriha/features/order/presentation/order.dart';
 import 'package:yoriha/features/profile/presentation/profile_screen.dart';
 import '../../../../core/constants/bottom_navigation_bar.dart';
 import '../controller/page_controller.dart';
@@ -34,7 +35,9 @@ class HomeSuccessState extends StatelessWidget {
           children: [
             controller.pageIdx.value == 0
                 ? HomeProdutDisplay(state: state)
-                : const ProfilScreen(),
+                : controller.pageIdx.value == 1
+                    ? const ProfilScreen()
+                    : const OrderScreen(),
           ],
         );
       }),

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:yoriha/features/home/domain/entity/product_entity.dart';
 
 import '../../../../core/constants/app_themes.dart';
-import '../../domain/entity/product_entity.dart';
 
-class HomeProductCard extends StatelessWidget {
-  const HomeProductCard({
+class OrderProductCard extends StatelessWidget {
+  const OrderProductCard({
     super.key,
-    required this.productModel,
+    required this.productEntity,
   });
 
-  final ProductEntity productModel;
+  final ProductEntity productEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -37,14 +37,22 @@ class HomeProductCard extends StatelessWidget {
                 ),
               ),
               Text(
-                productModel.productName,
+                productEntity.productName,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                 ),
               ),
+              const Text(
+                "2x Kg",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+              SizedBox(height: 10.h),
               Text(
-                productModel.productPrice.toString(),
+                productEntity.productPrice.toString(),
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.green,

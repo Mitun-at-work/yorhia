@@ -1,17 +1,16 @@
 class ProductModel {
   final String productName;
   final double productPrice;
-  final int productQuantity;
   final String imgLink;
 
   // Product Moedl Constructor
   ProductModel({
     required this.productName,
     required this.productPrice,
-    required this.productQuantity,
     required this.imgLink,
   });
 
+  // ignore: empty_constructor_bodies
   factory ProductModel.fromMap(Map<String, dynamic> jsonResponse) {
     //
     late double price;
@@ -28,8 +27,7 @@ class ProductModel {
 
     return ProductModel(
       productName: jsonResponse['productName'],
-      productPrice: price.toDouble(),
-      productQuantity: jsonResponse['productQuantity'],
+      productPrice: price,
       imgLink: jsonResponse['imageLink'],
     );
   }

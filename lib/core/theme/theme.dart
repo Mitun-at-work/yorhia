@@ -37,6 +37,8 @@ ThemeData get getTheme => ThemeData(
         shape: CircleBorder(),
       ),
 
+      dividerColor: Colors.transparent,
+
       ///
       textButtonTheme: const TextButtonThemeData(
         style: ButtonStyle(

@@ -23,7 +23,7 @@ class ShopGridView extends StatelessWidget {
         itemBuilder: (context, index) {
           final ProductEntity productEntity = controller.productEntity[index];
           return GestureDetector(
-            onTap: () => controller.updateProductSelected(index),
+            onTap: () => controller.updateProductSelected(index, 2),
             child: Container(
               padding: EdgeInsets.all(10.w),
               margin: EdgeInsets.symmetric(horizontal: 10.w),
@@ -49,10 +49,10 @@ class ShopGridView extends StatelessWidget {
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: EdgeInsets.only(top: 2.h, bottom: 10.h),
-                          child: Text(productEntity.productQuantity.toString()),
-                        ),
+                        // Padding(
+                        //   padding: EdgeInsets.only(top: 2.h, bottom: 10.h),
+                        //   child: Text(productEntity.productQuantity.toString()),
+                        // ),
                         Text(
                           productEntity.productPrice.toString(),
                           style: const TextStyle(
