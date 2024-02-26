@@ -16,7 +16,7 @@ class OrderProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Container(
-        width: 160.w,
+        width: 150.w,
         margin:
             EdgeInsets.only(top: 10.h, left: 10.w, bottom: 5.h, right: 10.w),
         decoration: BoxDecoration(
@@ -43,20 +43,14 @@ class OrderProductCard extends StatelessWidget {
                   fontSize: 18,
                 ),
               ),
-              const Text(
-                "2x Kg",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
-              ),
-              SizedBox(height: 10.h),
-              Text(
-                productEntity.productPrice.toString(),
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.green,
-                  fontSize: 19.sp,
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 10.h),
+                child: const Text(
+                  "2x Kg",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
                 ),
               ),
             ],

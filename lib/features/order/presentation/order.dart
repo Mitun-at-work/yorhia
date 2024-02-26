@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:yoriha/features/home/domain/entity/product_entity.dart';
-import 'package:yoriha/features/home/presentation/widgets/home_product_card.dart';
 import 'package:yoriha/features/order/presentation/widgets/order_card.dart';
 
 class OrderScreen extends StatelessWidget {
