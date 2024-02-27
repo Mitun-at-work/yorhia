@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -56,6 +58,8 @@ class FirebaseManager {
 
     UserCredential userCredential =
         await FirebaseAuth.instance.signInWithCredential(credential);
+
+    log(userCredential.toString());
 
     return {'user_mail': userCredential.credential.toString()};
   }

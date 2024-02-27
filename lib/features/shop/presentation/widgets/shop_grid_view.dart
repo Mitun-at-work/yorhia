@@ -23,7 +23,32 @@ class ShopGridView extends StatelessWidget {
         itemBuilder: (context, index) {
           final ProductEntity productEntity = controller.productEntity[index];
           return GestureDetector(
-            onTap: () => controller.updateProductSelected(index, 2),
+            onTap: () {
+              Get.defaultDialog(
+                radius: 2,
+                title: "Enter the quantity you would like to buy",
+                content: const Column(
+                  children: [
+                    Text("In Grams"),
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: TextField(
+                        autofocus: true,
+                        keyboardType: TextInputType.numberWithOptions(),
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          suffixText: "grams",
+                        ),
+                        style: TextStyle(),
+                      ),
+                    ),
+                  ],
+                ),
+                actions: [],
+              );
+
+              // controller.updateProductSelected(index, 2);
+            },
             child: Container(
               padding: EdgeInsets.all(10.w),
               margin: EdgeInsets.symmetric(horizontal: 10.w),

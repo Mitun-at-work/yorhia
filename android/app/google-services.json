@@ -12,7 +12,12 @@
           "package_name": "com.example.yorhia"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "424325246760-g3mp2l3pr4b4afdk9ee7vtcsghg9s0qg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCbtDjQ8zqFFyE-z_lIPnDT9zYb6BkN2hI"
@@ -20,7 +25,71 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "424325246760-g3mp2l3pr4b4afdk9ee7vtcsghg9s0qg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "424325246760-1nsddgo6f4embjvlk0cev64vei6cbcq3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.yorhiaAdmin.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:424325246760:android:e7a5ac9c684f65376d2a1d",
+        "android_client_info": {
+          "package_name": "com.example.yorhia_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "424325246760-fhprqir1g3fovcpi2bvgt162u4fu8lc6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.yorhia_admin",
+            "certificate_hash": "4c7556d147e1c81ee6b3879b62055a6b2962117d"
+          }
+        },
+        {
+          "client_id": "424325246760-l0nmnu2kg203nd3q6q7lap2475pbovap.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.yorhia_admin",
+            "certificate_hash": "52f445a692bb9824026d6c36a6f9b366fc80335f"
+          }
+        },
+        {
+          "client_id": "424325246760-g3mp2l3pr4b4afdk9ee7vtcsghg9s0qg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbtDjQ8zqFFyE-z_lIPnDT9zYb6BkN2hI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "424325246760-g3mp2l3pr4b4afdk9ee7vtcsghg9s0qg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "424325246760-1nsddgo6f4embjvlk0cev64vei6cbcq3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.yorhiaAdmin.RunnerTests"
+              }
+            }
+          ]
         }
       }
     }

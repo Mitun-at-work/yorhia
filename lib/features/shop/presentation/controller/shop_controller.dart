@@ -1,10 +1,6 @@
-import 'dart:developer';
-
 import 'package:get/get.dart';
-import 'package:get/get_rx/get_rx.dart';
 import '../../../../config/storage/storage.dart';
 import '../../../home/domain/entity/product_entity.dart';
-import '../../domain/entity/order_entity.dart';
 import '../../domain/usecase/place_order.dart';
 
 class ShopController extends GetxController {
