@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:yoriha/features/home/domain/entity/product_entity.dart';
+import 'package:yorhia/features/home/domain/entity/product_entity.dart';
 
 import '../../../../core/constants/app_themes.dart';
 

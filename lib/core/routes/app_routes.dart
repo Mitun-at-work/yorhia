@@ -5,4 +5,5 @@ class AppRouteNames {
   static String onboardRoute = "/onboard";
   static String ordersPage = "/order";
   static String profilePage = "/profile";
+  static String testPage = "/test";
 }

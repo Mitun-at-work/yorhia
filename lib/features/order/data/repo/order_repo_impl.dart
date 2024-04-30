@@ -1,7 +1,7 @@
-import 'package:yoriha/features/order/data/data_src/remote_order_repository.dart';
-import 'package:yoriha/features/order/domain/repo/order_repo.dart';
-import 'package:yoriha/features/shop/data/model/order_model.dart';
-import 'package:yoriha/features/shop/domain/entity/order_entity.dart';
+import 'package:yorhia/features/order/data/data_src/remote_order_repository.dart';
+import 'package:yorhia/features/order/domain/repo/order_repo.dart';
+import 'package:yorhia/features/shop/data/model/order_model.dart';
+import 'package:yorhia/features/shop/domain/entity/order_entity.dart';
 
 class OrderRepoImpl implements OrderRepo {
   // Order Dependencies

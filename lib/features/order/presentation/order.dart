@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-import 'package:yoriha/features/home/domain/entity/product_entity.dart';
-import 'package:yoriha/features/order/presentation/widgets/order_card.dart';
+import 'package:yorhia/features/home/domain/entity/product_entity.dart';
+import 'package:yorhia/features/order/presentation/widgets/order_card.dart';
 
 class OrderScreen extends StatelessWidget {
   const OrderScreen({super.key});

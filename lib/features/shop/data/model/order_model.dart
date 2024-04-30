@@ -1,4 +1,4 @@
-import 'package:yoriha/features/shop/domain/entity/order_entity.dart';
+import 'package:yorhia/features/shop/domain/entity/order_entity.dart';
 
 class OrderModel {
   final String orderId;

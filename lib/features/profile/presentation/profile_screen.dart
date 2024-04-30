@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:yoriha/features/profile/presentation/widgets/profile_tile.dart';
+import 'package:yorhia/features/profile/presentation/widgets/profile_tile.dart';
 
 class ProfilScreen extends StatelessWidget {
   const ProfilScreen({super.key});

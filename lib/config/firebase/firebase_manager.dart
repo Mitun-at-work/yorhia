@@ -18,7 +18,7 @@ class FirebaseManager {
 
     await collectionReference.add(documentMap);
   }
-
+  
   // Fetch a specific document id from a collection
   Future<Either<Map<String, dynamic>, void>> fetchDocumentIdFromCollection(
       String documentId, collectionName) async {

@@ -1,7 +1,7 @@
-import 'package:yoriha/config/firebase/firebase_manager.dart';
-import 'package:yoriha/config/storage/storage.dart';
-import 'package:yoriha/features/order/data/data_src/remote_order_repository.dart';
-import 'package:yoriha/features/shop/data/model/order_model.dart';
+import 'package:yorhia/config/firebase/firebase_manager.dart';
+import 'package:yorhia/config/storage/storage.dart';
+import 'package:yorhia/features/order/data/data_src/remote_order_repository.dart';
+import 'package:yorhia/features/shop/data/model/order_model.dart';
 
 class OrderRemoteDataSrcIpml implements OrderRemoteDataSrc {
   // Dependencies

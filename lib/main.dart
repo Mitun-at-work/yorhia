@@ -27,7 +27,7 @@ Future<void> main() async {
         debugShowCheckedModeBanner: false,
         theme: getTheme,
         routes: appRoutes.getRoutes(),
-        initialRoute: AppRouteNames.onboardRoute,
+        initialRoute: AppRouteNames.homeRoute,
       ),
     ),
   );

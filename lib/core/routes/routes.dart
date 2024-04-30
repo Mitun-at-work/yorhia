@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:yoriha/features/profile/presentation/profile_screen.dart';
+import 'package:yorhia/features/profile/presentation/profile_screen.dart';
+import 'package:yorhia/test.dart';
 
 import '../../features/home/presentation/pages/home.dart';
 import '../../features/onboard/presentation/pages/onboard.dart';
@@ -13,6 +14,7 @@ class AppRoutes {
       AppRouteNames.shopRoute: (context) => const ShopScreen(),
       AppRouteNames.onboardRoute: (context) => const OnboardScreen(),
       AppRouteNames.profilePage: (context) => const ProfilScreen(),
+      AppRouteNames.testPage: (context) =>  SignInDemo(),
     };
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:yoriha/features/home/presentation/widgets/home_state.dart';
-import 'package:yoriha/features/home/presentation/widgets/home_title.dart';
+import 'package:yorhia/features/home/presentation/widgets/home_state.dart';
+import 'package:yorhia/features/home/presentation/widgets/home_title.dart';
 import '../../../../core/constants/bottom_navigation_bar.dart';
 
 import '../../domain/entity/product_entity.dart';

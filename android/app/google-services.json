@@ -14,6 +14,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "424325246760-hmh8t71jkgi2e5frllsosaknovpjla7s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.yorhia",
+            "certificate_hash": "52f445a692bb9824026d6c36a6f9b366fc80335f"
+          }
+        },
+        {
+          "client_id": "424325246760-nh570b5kg2vt4pp3sojktc0cse7s7k8o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.yorhia",
+            "certificate_hash": "4c7556d147e1c81ee6b3879b62055a6b2962117d"
+          }
+        },
+        {
           "client_id": "424325246760-g3mp2l3pr4b4afdk9ee7vtcsghg9s0qg.apps.googleusercontent.com",
           "client_type": 3
         }
