@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:yorhia/features/auth/presentation/controller/auth_controller.dart';
 import '../../features/home/presentation/controller/page_controller.dart';
 import '../../features/shop/data/data_src/remote/remote_shop_data_src.dart';
 import '../../features/shop/data/data_src/remote/remote_shop_data_src_impl.dart';
@@ -82,6 +83,9 @@ class InjectionDependencies {
 
     // Screen Controller
     Get.put(ScreenController());
+
+    // Auth controller
+    Get.put(AuthController());
   }
 
   // Repository Injection

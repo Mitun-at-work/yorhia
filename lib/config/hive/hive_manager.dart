@@ -29,4 +29,15 @@ class HiveManager {
   Future<void> writeToBox(Map<String, dynamic> jsonMap) async {
     await _userBox.put(userDataMap, jsonMap);
   }
+
+  // When user logs in
+  Future<void> loginUser() async {
+    await Hive.box(boxName).put('isLoggedIn', true);
+  }
+
+// When user logs out
+  Future<void> logoutUser() async {
+    await Hive.box(boxName).put('isLoggedIn', false);
+  }
+
 }

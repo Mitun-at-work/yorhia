@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:yorhia/features/auth/presentation/pages/mobile_number.dart';
+import 'package:yorhia/features/auth/presentation/pages/otp_screen.dart';
+import 'package:yorhia/features/auth/presentation/widgets/custom_elevated_button.dart';
 
 import '../controllers/onboard_controller.dart';
 
@@ -11,13 +15,15 @@ class OnboardScreen extends StatelessWidget {
     // Scafolld
     return GetBuilder<OnboardController>(builder: (controller) {
       return Scaffold(
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.start),
-          onPressed: () async {
-            await controller.authenticateEmail();
-          },
-        ),
+        // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        // floatingActionButton: FloatingActionButton(
+        //   shape:
+        //       RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        //   onPressed: () async {
+        //     Get.to(const PhoneNumber());
+        //   },
+        //   child: const Icon(Icons.start),
+        // ),
         body: SafeArea(
           child: Column(
             children: [
@@ -26,9 +32,15 @@ class OnboardScreen extends StatelessWidget {
                   child: Image.asset("asset/images/bg.jpg"),
                 ),
               ),
-              TextButton(
-                onPressed: () {},
-                child: const Text("Click Me"),
+              const Spacer(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CustomElevatedButton(
+                  onPressed: () {
+                    Get.to(const PhoneNumber());
+                  },
+                  fieldName: "Login",
+                ),
               ),
             ],
           ),

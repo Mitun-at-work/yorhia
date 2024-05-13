@@ -44,38 +44,37 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBK614-d2r7jB_l8FrObHINRqzok_qIpgo',
-    appId: '1:424325246760:web:6198666e78af8f0a6d2a1d',
-    messagingSenderId: '424325246760',
-    projectId: 'yorhia-bbbc5',
-    authDomain: 'yorhia-bbbc5.firebaseapp.com',
-    storageBucket: 'yorhia-bbbc5.appspot.com',
-    measurementId: 'G-FSL65YLL28',
+    apiKey: 'AIzaSyDCheX9cw2Jg0ca8M0oEcGeOHZZ9tskSIg',
+    appId: '1:476230904659:web:6d397088775a03d9f94fa6',
+    messagingSenderId: '476230904659',
+    projectId: 'yorhia-project',
+    authDomain: 'yorhia-project.firebaseapp.com',
+    storageBucket: 'yorhia-project.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCbtDjQ8zqFFyE-z_lIPnDT9zYb6BkN2hI',
-    appId: '1:424325246760:android:66ad07955eb395cc6d2a1d',
-    messagingSenderId: '424325246760',
-    projectId: 'yorhia-bbbc5',
-    storageBucket: 'yorhia-bbbc5.appspot.com',
+    apiKey: 'AIzaSyAfhkL7fg1Jo424DbBllz2C6nybZF4cQ04',
+    appId: '1:476230904659:android:515e53bfb5b61622f94fa6',
+    messagingSenderId: '476230904659',
+    projectId: 'yorhia-project',
+    storageBucket: 'yorhia-project.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBxFsWNRWTmvBIw2oNB86HvKtPSRUV3YfM',
-    appId: '1:424325246760:ios:ebd5eb4fefd8249d6d2a1d',
-    messagingSenderId: '424325246760',
-    projectId: 'yorhia-bbbc5',
-    storageBucket: 'yorhia-bbbc5.appspot.com',
+    apiKey: 'AIzaSyBeBKBVq61xlgVx_zOLtdkVttWdNcxlA18',
+    appId: '1:476230904659:ios:b738613b5bd478cef94fa6',
+    messagingSenderId: '476230904659',
+    projectId: 'yorhia-project',
+    storageBucket: 'yorhia-project.appspot.com',
     iosBundleId: 'com.example.yorhia',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBxFsWNRWTmvBIw2oNB86HvKtPSRUV3YfM',
-    appId: '1:424325246760:ios:ebd5eb4fefd8249d6d2a1d',
-    messagingSenderId: '424325246760',
-    projectId: 'yorhia-bbbc5',
-    storageBucket: 'yorhia-bbbc5.appspot.com',
+    apiKey: 'AIzaSyBeBKBVq61xlgVx_zOLtdkVttWdNcxlA18',
+    appId: '1:476230904659:ios:b738613b5bd478cef94fa6',
+    messagingSenderId: '476230904659',
+    projectId: 'yorhia-project',
+    storageBucket: 'yorhia-project.appspot.com',
     iosBundleId: 'com.example.yorhia',
   );
 }

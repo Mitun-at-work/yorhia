@@ -1,7 +1,7 @@
 {
   "file_generated_by": "FlutterFire CLI",
   "purpose": "FirebaseAppID & ProjectID for this Firebase app in this directory",
-  "GOOGLE_APP_ID": "1:424325246760:ios:ebd5eb4fefd8249d6d2a1d",
-  "FIREBASE_PROJECT_ID": "yorhia-bbbc5",
-  "GCM_SENDER_ID": "424325246760"
+  "GOOGLE_APP_ID": "1:476230904659:ios:b738613b5bd478cef94fa6",
+  "FIREBASE_PROJECT_ID": "yorhia-project",
+  "GCM_SENDER_ID": "476230904659"
 }
